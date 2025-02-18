@@ -1,5 +1,3 @@
-import 'package:final_project/core/helper/extensions.dart';
-import 'package:final_project/core/router/router.dart';
 import 'package:final_project/core/themes/styles.dart';
 import 'package:final_project/core/widgets/custom_button.dart';
 import 'package:final_project/core/widgets/custom_text_field.dart';
@@ -8,21 +6,21 @@ import 'package:final_project/features/authentication/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Welcome Back', style: TextStyles.font24GreenBold),
+              Text('Create Account', style: TextStyles.font24GreenBold),
               Text(
-                "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
+                "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
                 style: TextStyles.font14GrayRegular,
               ),
               SizedBox(height: 20.h),
@@ -31,19 +29,21 @@ class LoginScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTextField(hint: "Enter your name", label: "Name"),
+
                     SizedBox(height: 20.h),
+                    CustomTextField(hint: "Email/Phone Number", label: "Email"),
+                     SizedBox(height: 20.h),
                     CustomTextField(
                       hint: "Enter your password",
                       label: "Password",
                     ),
-                    SizedBox(height: 10.h),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Forgot Password",
-                        style: TextStyles.font12BlackBold,
-                      ),
+                    
+                     SizedBox(height: 20.h),
+                    CustomTextField(
+                      hint: "Confirm password",
+                      label: "Password",
                     ),
+                    
                     SizedBox(height: 10.h),
                     Row(
                       children: [
@@ -52,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 40.h),
-                    CustomButton(buttonText: "Login", onPressed: () {}),
+                    CustomButton(buttonText: "Create Account", onPressed: () {}),
                   ],
                 ),
               ),
@@ -78,15 +78,13 @@ class LoginScreen extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "Don't have an account?",
+                    "Already have an account",
                     style: TextStyle(fontSize: 16.sp, color: Color(0xffB08263)),
                   ),
                   TextButton(
-                    onPressed: () {
-                      context.pushNamed( Routes.register);
-                    },
+                    onPressed: () {},
                     child: Text(
-                      "Sign Up",
+                      "Log in",
                       style: TextStyle(fontSize: 16.sp, color: Colors.black),
                     ),
                   ),
@@ -96,6 +94,7 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
       ),
+    
     );
   }
 }

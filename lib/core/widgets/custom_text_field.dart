@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.obscureText = false,
     this.suffix = false,
-     this.controller,
+    this.controller,
   });
   final String hint;
   final String label;
@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
-        height: 60.h,
+        height: 32.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: ColorsManager.grayWithOpacity.withValues(alpha: 0.5),

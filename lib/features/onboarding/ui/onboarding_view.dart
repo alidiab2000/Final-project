@@ -1,3 +1,6 @@
+import 'package:final_project/core/helper/extensions.dart';
+import 'package:final_project/core/router/app_router.dart';
+import 'package:final_project/core/router/router.dart';
 import 'package:final_project/core/themes/styles.dart';
 import 'package:final_project/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +20,12 @@ class OnboardingView extends StatelessWidget {
 
             Text('Emaar El-Ard', style: TextStyles.font46GreenBold),
             SizedBox(height: 50.h),
-            CustomButton(buttonText: "Get Started", onPressed: () {}),
+            CustomButton(
+              buttonText: "Get Started",
+              onPressed: () {
+                context.pushNamed(Routes.login);
+              },
+            ),
           ],
         ),
       ),

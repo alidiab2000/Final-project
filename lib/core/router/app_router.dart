@@ -1,3 +1,5 @@
+import 'package:final_project/features/authentication/ui/login_screen.dart';
+import 'package:final_project/features/authentication/ui/register_screen.dart';
 import 'package:flutter/material.dart';
 import '../../features/onboarding/ui/onboarding_view.dart';
 import 'router.dart';
@@ -11,13 +13,9 @@ class AppRouter {
       case Routes.onboarding:
         return MaterialPageRoute(builder: (_) => const OnboardingView());
       case Routes.login:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(body: Center(child: Text('Login Page'))),
-        );
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.register:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(body: Center(child: Text('Register Page'))),
-        );
+        return MaterialPageRoute(builder: (_) => const RegisterScreen());
       default:
         return MaterialPageRoute(
           builder:
