@@ -7,7 +7,11 @@ class TextStyles {
     fontWeight: FontWeight.bold,
     color: Color(0xff1E640A),
   );
-
+static TextStyle font24GreenBold = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.bold,
+    color: Color(0xff1E640A),
+  );
   static TextStyle font14GrayRegular = TextStyle(
     fontSize: 14.sp,
     color: Color(0xff757575),
@@ -16,5 +20,10 @@ class TextStyles {
     fontSize: 20.sp,
     fontWeight: FontWeight.bold,
     color: Colors.white,
+  );
+  static TextStyle font12BlackBold = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
   );
 }
