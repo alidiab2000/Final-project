@@ -2,7 +2,7 @@ part of 'authcubit.dart';
 
 class AuthState {}
 
-class ForgetPasswordInitial extends AuthState {}
+class AuthInitial extends AuthState {}
 
 class ForgetPasswordLoading extends AuthState {}
 

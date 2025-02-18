@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(ForgetPasswordInitial());
+  AuthCubit() : super(AuthInitial());
   final forgetPasswordemailController = TextEditingController();
   final forgetPasswordFormKey = GlobalKey<FormState>();
   final _auth = FirebaseAuth.instance;
@@ -27,8 +27,6 @@ class AuthCubit extends Cubit<AuthState> {
       emit(ForgetPasswordFailed(e.toString()));
     }
   }
-
-
 
   // Login
 
