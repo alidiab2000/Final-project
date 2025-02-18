@@ -9,7 +9,7 @@ class OnboardingView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: CustomTextField(
-          hint: "Enter your name",
+          hint: "Enter your ",
           label: "Name",
           controller: TextEditingController(),
         ),
