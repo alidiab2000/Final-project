@@ -1,5 +1,5 @@
-import 'package:final_project/features/authentication/ui/login_screen.dart';
-import 'package:final_project/features/authentication/ui/register_screen.dart';
+import 'package:final_project/features/auth/ui/login/login_screen.dart';
+import 'package:final_project/features/auth/ui/register_screen.dart';
 import 'package:flutter/material.dart';
 import '../../features/onboarding/ui/onboarding_view.dart';
 import 'router.dart';

@@ -2,7 +2,7 @@ import 'package:final_project/core/themes/styles.dart';
 import 'package:final_project/core/widgets/custom_button.dart';
 import 'package:final_project/core/widgets/custom_text_field.dart';
 import 'package:final_project/core/widgets/trounded_imagecontainer.dart';
-import 'package:final_project/features/authentication/widgets/divider.dart';
+import 'package:final_project/features/auth/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
