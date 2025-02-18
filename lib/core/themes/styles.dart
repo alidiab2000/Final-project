@@ -1,3 +1,4 @@
+import 'package:final_project/core/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,7 +6,7 @@ class TextStyles {
   static TextStyle font46GreenBold = TextStyle(
     fontSize: 46.sp,
     fontWeight: FontWeight.bold,
-    color: Color(0xff1E640A),
+    color: ColorsManager.maingreen,
   );
 
   static TextStyle font14GrayRegular = TextStyle(
@@ -16,5 +17,10 @@ class TextStyles {
     fontSize: 20.sp,
     fontWeight: FontWeight.bold,
     color: Colors.white,
+  );
+  static TextStyle font24GreenBold = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.bold,
+    color: ColorsManager.maingreen,
   );
 }
