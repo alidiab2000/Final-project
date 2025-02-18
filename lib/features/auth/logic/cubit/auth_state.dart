@@ -11,4 +11,6 @@ class ForgetPasswordSuccess extends AuthState {}
 class ForgetPasswordFailed extends AuthState {
   final String error;
   ForgetPasswordFailed(this.error);
+
 }
+class LoginLoading extends AuthState {}
