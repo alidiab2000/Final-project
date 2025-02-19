@@ -13,15 +13,16 @@ class AuthCubit extends Cubit<AuthState> {
   sendPasswordResetEmail(BuildContext context) async {
     try {
       emit(ForgetPasswordLoading());
-      FullscreenLoader.openLoadingDialog('Please wait', context);
+      FullscreenLoader.openLoadingDialog('Check Your Email', context);
       if (!forgetPasswordFormKey.currentState!.validate()) {
-        FullscreenLoader.stopLoading(context);
+        await Future.delayed(const Duration(seconds: 5));
         debugPrint('Form is not valid');
         return;
       }
       await _auth.sendPasswordResetEmail(
         email: forgetPasswordemailController.text.trim(),
       );
+      await Future.delayed(const Duration(seconds: 5));
       emit(ForgetPasswordSuccess());
     } catch (e) {
       emit(ForgetPasswordFailed(e.toString()));
@@ -31,4 +32,24 @@ class AuthCubit extends Cubit<AuthState> {
   // Login
 
   // Register
+  final registerFormKey = GlobalKey<FormState>();
+  final registerNameController = TextEditingController();
+  final registerEmailController = TextEditingController();
+  final registerPasswordController = TextEditingController();
+  final registerConfirmPasswordController = TextEditingController();
+
+  registerWithEmailAndPassword( context) async {
+    try {
+      emit(RegisterLoading());
+      FullscreenLoader.openLoadingDialog("Creating Account", context);
+      await _auth.createUserWithEmailAndPassword(
+        email: registerEmailController.text.trim(),
+        password: registerPasswordController.text.trim(),
+      );
+      await Future.delayed(const Duration(seconds: 4));
+      emit(RegisterSuccess());
+    } catch (e) {
+      emit(RegisterFailed(e.toString()));
+    }
+  }
 }

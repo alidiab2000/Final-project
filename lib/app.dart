@@ -21,7 +21,7 @@ class EmaarElArd extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
           
         ),
-        initialRoute: Routes.forgetPassword,
+        initialRoute: Routes.onboarding,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );
