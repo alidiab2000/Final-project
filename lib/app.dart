@@ -7,10 +7,10 @@ import 'core/router/router.dart';
 
 class EmaarElArd extends StatelessWidget {
   const EmaarElArd({super.key, required this.appRouter});
-  final AppRouter appRouter ;
+  final AppRouter appRouter;
   @override
   Widget build(BuildContext context) {
-    return   ScreenUtilInit(
+    return ScreenUtilInit(
       designSize: Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
@@ -19,9 +19,8 @@ class EmaarElArd extends StatelessWidget {
         theme: ThemeData(
           primaryColor: ColorsManager.maingreen,
           scaffoldBackgroundColor: Colors.white,
-          
         ),
-        initialRoute: Routes.forgetPassword,
+        initialRoute: Routes.onboarding,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );

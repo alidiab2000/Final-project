@@ -23,4 +23,9 @@ class TextStyles {
     fontWeight: FontWeight.bold,
     color: ColorsManager.maingreen,
   );
+    static TextStyle font12BlackBold = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
 }
