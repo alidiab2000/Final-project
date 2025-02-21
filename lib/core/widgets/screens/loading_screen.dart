@@ -1,13 +1,11 @@
 import 'package:final_project/core/helper/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../loaders/animation_loader.dart';
 
 class FullscreenLoader {
-  static void openLoadingDialog(
-    String? text,
-    BuildContext context,
-  ) {
+  static void openLoadingDialog(String? text, BuildContext context) {
     showDialog(
       barrierDismissible: false,
       context: context,
@@ -20,7 +18,7 @@ class FullscreenLoader {
               height: double.infinity,
               child: Column(
                 children: [
-                  const SizedBox(height: 200),
+                  SizedBox(height: 200.h),
                   AnimationLoader(text: text!),
                 ],
               ),

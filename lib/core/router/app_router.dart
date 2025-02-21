@@ -1,5 +1,6 @@
 import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
 import 'package:final_project/features/auth/ui/register/register_screen.dart';
+import 'package:final_project/features/home/ui/home_view.dart';
 import 'package:final_project/features/onboarding/ui/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,9 +41,7 @@ class AppRouter {
               ),
         );
       case Routes.home:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(body: Center(child: Text('Home Page'))),
-        );
+        return MaterialPageRoute(builder: (_) => HomeView());
 
       default:
         return MaterialPageRoute(
