@@ -1,32 +1,57 @@
+import 'package:final_project/core/helper/app_regex.dart';
 import 'package:final_project/core/helper/extensions.dart';
 import 'package:final_project/core/router/router.dart';
 import 'package:final_project/core/themes/styles.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/helper/constants.dart';
 import '../../../../../core/widgets/commen/custom_button.dart';
 import '../../../../../core/widgets/commen/custom_text_field.dart';
+import '../../../logic/cubit/authcubit.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final loginBloc = context.read<AuthCubit>();
     return Form(
+      key: loginBloc.loginFormKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomTextField(
-            hint: "Enter your name",
-            label: "Name",
-            controller: TextEditingController(),
+            hint: "Enter your email",
+            label: "Email",
+            validator: (email) {
+              if (email == null || email.isEmpty) {
+                return 'Please enter your email';
+              } else if (!AppRegex.isEmailValid(email)) {
+                return 'Please enter a valid email';
+              }
+              return null;
+            },
+            controller: loginBloc.loginEmailController,
           ),
           SizedBox(height: 20.h),
           CustomTextField(
             hint: "Enter your password",
             label: "Password",
-            controller: TextEditingController(),
+            suffix: true,
+            obscureText: loginBloc.loginPasswordVisible,
+            controller: loginBloc.loginPasswordController,
+            validator: (password) {
+              if (password == null || password.isEmpty) {
+                return 'Please enter your password';
+              } else if (!AppRegex.isPasswordValid(password)) {
+                return Constants.passwordNotValid;
+              }
+
+              return null;
+            },
           ),
           SizedBox(height: 10.h),
           TextButton(
@@ -53,7 +78,11 @@ class LoginForm extends StatelessWidget {
             ],
           ),
           SizedBox(height: 40.h),
-          CustomButton(buttonText: "Login", onPressed: () {}),
+          CustomButton(
+            buttonText: "Login",
+            onPressed:
+                () async => await loginBloc.loginWithEmailAndPassword(context),
+          ),
         ],
       ),
     );
