@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
 import 'package:final_project/features/auth/ui/register/register_screen.dart';
+import 'package:final_project/features/auth/ui/verify/verify_view.dart';
 import 'package:final_project/features/home/ui/home_view.dart';
 import 'package:final_project/features/onboarding/ui/onboarding_view.dart';
 
@@ -44,6 +45,11 @@ class AppRouter {
                 child: ForgetPasswordView(),
               ),
         );
+
+        case Routes.emailVerification:
+        return MaterialPageRoute(
+          builder: (_) => VerificationEmailScreen()
+        );
       case Routes.home:
         return MaterialPageRoute(builder: (_) => HomeView());
       case Routes.verifyEmail:
@@ -59,6 +65,8 @@ class AppRouter {
                 ),
               ),
         );
+
     }
+
   }
 }
