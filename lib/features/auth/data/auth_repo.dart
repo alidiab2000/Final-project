@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class AuthRepo {
   final _auth = FirebaseAuth.instance;
-  
+
   Future<UserCredential> loginWithEmailAndPassword({
     required String email,
     required String password,
@@ -27,7 +27,7 @@ class AuthRepo {
     }
   }
 
-  Future<void> sendPasswordResetEmail( {required String email}) async {
+  Future<void> sendPasswordResetEmail({required String email}) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
@@ -51,6 +51,21 @@ class AuthRepo {
         email: email,
         password: password,
       );
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.toString());
+      throw FirebaseAuthExceptions(e.code).message;
+    } on PlatformException catch (e) {
+      debugPrint(e.toString());
+      throw PlatformException(e.code).message;
+    } catch (e) {
+      debugPrint(e.toString());
+      throw "Something went wrong, please try again later";
+    }
+  }
+
+  Future<void> sendEmailVerification() async {
+    try {
+      await _auth.currentUser?.sendEmailVerification();
     } on FirebaseAuthException catch (e) {
       debugPrint(e.toString());
       throw FirebaseAuthExceptions(e.code).message;
