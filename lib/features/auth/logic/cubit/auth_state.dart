@@ -11,8 +11,8 @@ class ForgetPasswordSuccess extends AuthState {}
 class ForgetPasswordFailed extends AuthState {
   final String error;
   ForgetPasswordFailed(this.error);
-
 }
+
 class LoginLoading extends AuthState {}
 
 class LoginSuccess extends AuthState {}
@@ -29,4 +29,13 @@ class RegisterSuccess extends AuthState {}
 class RegisterFailed extends AuthState {
   final String error;
   RegisterFailed(this.error);
+}
+
+class EmailVerficationLoading extends AuthState {}
+
+class EmailVerficationSuccess extends AuthState {}
+
+class EmailVerficationFailed extends AuthState {
+  final String error;
+  EmailVerficationFailed(this.error);
 }

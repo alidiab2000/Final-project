@@ -7,4 +7,6 @@ class ImagesPath {
   static const String facebookLogo = "assets/images/facebook_logo.png";
   static const String googleLogo = "assets/images/goegle_logo.png";
   static const String appleLogo = "assets/images/apple_logo.png";
+
+  static const String verfiyEmail = "assets/images/verify_email.png";
 }
