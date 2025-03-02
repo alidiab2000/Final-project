@@ -79,18 +79,5 @@ class AuthRepo {
       throw "Something went wrong, please try again later";
     }
   }
-  Future<void> setTimerForAutoRedirect() async {
-    Timer.periodic(
-      const Duration(seconds: 2),
-      (timer) async {
-        FirebaseAuth.instance.currentUser?.reload();
-        final user = FirebaseAuth.instance.currentUser;
-
-        if (user?.emailVerified ?? false) {
-          timer.cancel();
-        } 
-      },
-    );
-  }
 
 }
