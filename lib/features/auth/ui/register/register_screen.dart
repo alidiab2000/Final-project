@@ -31,7 +31,7 @@ class RegisterScreen extends StatelessWidget {
                 if (state is RegisterSuccess) {
                   // Delayed navigation
                   FullscreenLoader.stopLoading(context);
-                  context.pushReplacementNamed(Routes.home);
+                  context.pushReplacementNamed(Routes.login);
                 }
               },
               child: Column(
