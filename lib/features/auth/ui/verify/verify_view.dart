@@ -6,22 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class VerificationEmailScreen extends StatefulWidget {
+class VerificationEmailScreen extends StatelessWidget {
   const VerificationEmailScreen({super.key});
-
-  @override
-  State<VerificationEmailScreen> createState() =>
-      _VerificationEmailScreenState();
-}
-
-class _VerificationEmailScreenState extends State<VerificationEmailScreen> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<AuthCubit>().sendEmailVerfication();
-    //Todo : Add Timer to resend email
-
-  }
 
   @override
   Widget build(BuildContext context) {
