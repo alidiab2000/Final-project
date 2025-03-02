@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:final_project/core/widgets/screens/loading_screen.dart';
 import 'package:final_project/features/auth/data/auth_repo.dart';
@@ -76,4 +78,21 @@ class AuthCubit extends Cubit<AuthState> {
       emit(RegisterFailed(e.toString()));
     }
   }
+
+
+  Future<void>sendEmailVerfication()async{
+    try {
+      emit(EmailVerficationLoading());
+    await authRepo.sendEmailVerification();
+    emit(EmailVerficationSuccess());
+    } catch (e) {
+      emit(EmailVerficationFailed(e.toString()));
+    }
+    
+  }
+  
+
+
+
+  
 }
