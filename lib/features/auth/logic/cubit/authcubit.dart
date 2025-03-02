@@ -83,7 +83,7 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       emit(EmailVerficationLoading());
       await authRepo.sendEmailVerification();
-      emit(EmailVerficationSuccess());
+      await checkEmailVerified();
     } catch (e) {
       emit(EmailVerficationFailed(e.toString()));
     }
@@ -93,8 +93,6 @@ class AuthCubit extends Cubit<AuthState> {
     final currentUser = FirebaseAuth.instance.currentUser;
     if (currentUser != null && currentUser.emailVerified) {
       emit(EmailVerficationSuccess());
-    } else {
-      emit(EmailVerficationFailed("Email is not verified"));
     }
   }
 }

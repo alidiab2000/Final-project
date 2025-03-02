@@ -68,6 +68,7 @@ class AuthRepo {
   Future<void> sendEmailVerification() async {
     try {
       await _auth.currentUser?.sendEmailVerification();
+      _auth.currentUser?.reload();
     } on FirebaseAuthException catch (e) {
       debugPrint(e.toString());
       throw FirebaseAuthExceptions(e.code).message;
