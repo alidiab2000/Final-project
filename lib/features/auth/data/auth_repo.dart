@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:final_project/core/errors/firebase_auth_exceptions.dart';
 import 'package:final_project/core/errors/platform_exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -77,4 +79,18 @@ class AuthRepo {
       throw "Something went wrong, please try again later";
     }
   }
+  Future<void> setTimerForAutoRedirect() async {
+    Timer.periodic(
+      const Duration(seconds: 2),
+      (timer) async {
+        FirebaseAuth.instance.currentUser?.reload();
+        final user = FirebaseAuth.instance.currentUser;
+
+        if (user?.emailVerified ?? false) {
+          timer.cancel();
+        } 
+      },
+    );
+  }
+
 }

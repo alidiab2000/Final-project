@@ -15,7 +15,7 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  String initialRoute = await checkIfLoggedInUser();
+  String initialRoute = await checkIfLoggedInAndVerfiedUser();
   AppRouter appRouter = AppRouter(initialRoute: initialRoute);
   runApp(EmaarElArd(appRouter: appRouter));
 }

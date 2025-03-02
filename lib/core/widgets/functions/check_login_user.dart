@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<String> checkIfLoggedInUser() async {
+Future<String> checkIfLoggedInAndVerfiedUser() async {
   final firebaseAuth = FirebaseAuth.instance;
   final prefs = await SharedPreferences.getInstance();
 
@@ -31,7 +31,7 @@ Future<String> checkIfLoggedInUser() async {
   if (isFirstTime) {
     await prefs.setBool(isFirstTimeKey, false);
     return Routes.onboarding;
-  } 
+  }
 
   return Routes.login;
 }

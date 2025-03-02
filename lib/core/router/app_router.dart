@@ -46,16 +46,13 @@ class AppRouter {
               ),
         );
 
-        case Routes.emailVerification:
-        return MaterialPageRoute(
-          builder: (_) => VerificationEmailScreen()
-        );
+      case Routes.verifyEmail:
+        return MaterialPageRoute(builder: (_) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: VerificationEmailScreen(),
+        ));
       case Routes.home:
         return MaterialPageRoute(builder: (_) => HomeView());
-      case Routes.verifyEmail:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(body: Center(child: Text('Verify Email'))),
-        );
       default:
         return MaterialPageRoute(
           builder:
@@ -65,8 +62,6 @@ class AppRouter {
                 ),
               ),
         );
-
     }
-
   }
 }
