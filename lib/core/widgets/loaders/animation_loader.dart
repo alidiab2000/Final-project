@@ -1,3 +1,4 @@
+import 'package:final_project/core/helper/images.dart';
 import 'package:final_project/core/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +23,7 @@ class AnimationLoader extends StatelessWidget {
       child: Column(
         children: [
           Lottie.asset(
-            "assets/images/loader-animation.json",
+            ImagesPath.loaderAnimated,
             width: MediaQuery.sizeOf(context).width * 0.8,
           ),
           const SizedBox(height: 20),

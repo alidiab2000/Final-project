@@ -8,6 +8,16 @@ class TextStyles {
     fontWeight: FontWeight.bold,
     color: ColorsManager.maingreen,
   );
+  static TextStyle font22BlackRegular = TextStyle(
+    fontSize: 22.sp,
+    fontWeight: FontWeight.w600,
+    color: Colors.black,
+  );
+  static TextStyle font20BlackBold = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
 
   static TextStyle font14GrayRegular = TextStyle(
     fontSize: 14.sp,
@@ -18,14 +28,19 @@ class TextStyles {
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
+
   static TextStyle font24GreenBold = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeight.bold,
     color: ColorsManager.maingreen,
   );
-    static TextStyle font12BlackBold = TextStyle(
+  static TextStyle font12BlackBold = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+  static TextStyle font14BlackRegular = TextStyle(
+    fontSize: 14.sp,
     color: Colors.black,
   );
 }

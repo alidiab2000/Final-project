@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
-import 'package:final_project/features/auth/ui/register/register_screen.dart';
+import 'package:final_project/features/auth/ui/register/register_view.dart';
 import 'package:final_project/features/auth/ui/verify/verify_view.dart';
-import 'package:final_project/features/home/ui/home_view.dart';
-import 'package:final_project/features/onboarding/ui/onboarding_view.dart';
+import 'package:final_project/features/agriculture/ui/navigationbar/navigationbar_menu_view.dart';
+import 'package:final_project/features/auth/ui/onboarding/ui/onboarding_view.dart';
 
+import '../../features/agriculture/logic/navigationbar_cubit/naviagtionbar_cubit.dart';
 import '../../features/auth/ui/forget_password/forget_pass_view.dart';
 import '../../features/auth/ui/login/login_screen.dart';
 import 'router.dart';
@@ -47,12 +48,21 @@ class AppRouter {
         );
 
       case Routes.verifyEmail:
-        return MaterialPageRoute(builder: (_) => BlocProvider(
-          create: (context) => AuthCubit(),
-          child: VerificationEmailScreen(),
-        ));
-      case Routes.home:
-        return MaterialPageRoute(builder: (_) => HomeView());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => AuthCubit(),
+                child: VerificationEmailScreen(),
+              ),
+        );
+      case Routes.navigationBarMenu:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => NaviagtionbarCubit(),
+                child: NavigationBarMenuView(),
+              ),
+        );
       default:
         return MaterialPageRoute(
           builder:
