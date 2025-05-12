@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:final_project/app.dart';
 import 'package:final_project/core/bloc_obs/bloc_observer.dart';
 import 'package:final_project/core/router/app_router.dart';

@@ -9,6 +9,7 @@ import 'package:final_project/features/agriculture/ui/navigationbar/navigationba
 import 'package:final_project/features/auth/ui/onboarding/ui/onboarding_view.dart';
 
 import '../../features/agriculture/logic/navigationbar_cubit/naviagtionbar_cubit.dart';
+import '../../features/agriculture/ui/weather/weather_view.dart';
 import '../../features/auth/ui/forget_password/forget_pass_view.dart';
 import '../../features/auth/ui/login/login_screen.dart';
 import 'router.dart';
@@ -63,6 +64,8 @@ class AppRouter {
                 child: NavigationBarMenuView(),
               ),
         );
+      case Routes.weatherView:
+        return MaterialPageRoute(builder: (_) => WeatherView());
       default:
         return MaterialPageRoute(
           builder:

@@ -19,7 +19,7 @@ class EmaarElArd extends StatelessWidget {
           primaryColor: ColorsManager.maingreen,
           scaffoldBackgroundColor: Colors.white,
         ),
-        initialRoute: Routes.navigationBarMenu, //ToDo  appRouter.initialRoute,
+        initialRoute: Routes.navigationBarMenu, //TODO  appRouter.initialRoute,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );
