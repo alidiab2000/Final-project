@@ -53,7 +53,7 @@ class NpkSensorScreen extends StatelessWidget {
                   color: Color(0xff1E640A),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 31),
               ...data.entries.map(
                 (entry) => SensorRow(label: entry.key, value: entry.value),
               ),
