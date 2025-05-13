@@ -1,11 +1,12 @@
 import 'package:final_project/core/helper/extensions.dart';
+import 'package:final_project/core/helper/images.dart';
 import 'package:final_project/core/router/router.dart';
 import 'package:final_project/core/themes/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../core/widgets/commen/custom_button.dart';
+import '../../../../../core/widgets/commen/custom_button.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
@@ -21,7 +22,7 @@ class OnboardingView extends StatelessWidget {
               children: [
                 SizedBox(height: 100.h),
                 Lottie.asset(
-                  'assets/images/Animation - 1739830703663.json',
+                  ImagesPath.onboardingAnimated,
                   height: MediaQuery.sizeOf(context).height * 0.4,
                   width: double.infinity,
                 ),

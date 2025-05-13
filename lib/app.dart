@@ -1,3 +1,4 @@
+import 'package:final_project/core/router/router.dart';
 import 'package:final_project/core/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +19,7 @@ class EmaarElArd extends StatelessWidget {
           primaryColor: ColorsManager.maingreen,
           scaffoldBackgroundColor: Colors.white,
         ),
-        initialRoute: appRouter.initialRoute,
+        initialRoute: Routes.navigationBarMenu, //TODO  appRouter.initialRoute,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );

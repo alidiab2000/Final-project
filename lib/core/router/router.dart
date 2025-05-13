@@ -1,6 +1,8 @@
-class Routes{
+class Routes {
   static const String onboarding = '/onboarding';
   static const String home = '/home';
+  static const String weatherView = '/weatherView';
+  static const String navigationBarMenu = '/navigationBarMenu';
   static const String login = '/login';
   static const String register = '/register';
   static const String forgetPassword = '/forgetPassword';

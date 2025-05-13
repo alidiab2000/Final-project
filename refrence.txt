@@ -1,4 +1,8 @@
 figma = https://www.figma.com/design/Tk06GXLezHt0n9pEKt5lmp/Task30?node-id=329-2866&t=gpzBX2VcV1WTkjzR-0
+api_key = 1fe4c54325184009af2192535230605
+api_base_url = http://api.weatherapi.com/v1
+api_docs = https://www.weatherapi.com/docs/
 weatherapi-site = https://www.weatherapi.com/docs/ 
 api = http://api.weatherapi.com/v1
 api key = 1fe4c54325184009af2192535230605
+
