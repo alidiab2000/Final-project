@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:final_project/features/agriculture/ui/crops/crop_info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -64,8 +65,12 @@ class AppRouter {
                 child: NavigationBarMenuView(),
               ),
         );
+         case Routes.cropInfo:
+        return MaterialPageRoute(builder: (_) => CropInfoScreen(cropInfo: args as Map<String,dynamic>,));
+     
       case Routes.weatherView:
         return MaterialPageRoute(builder: (_) => WeatherView());
+        
       default:
         return MaterialPageRoute(
           builder:
@@ -74,6 +79,7 @@ class AppRouter {
                   child: Text('No route defined for ${settings.name}'),
                 ),
               ),
+              
         );
     }
   }

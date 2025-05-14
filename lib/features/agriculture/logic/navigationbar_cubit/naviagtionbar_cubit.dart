@@ -1,13 +1,14 @@
 import 'package:bloc/bloc.dart';
+import 'package:final_project/features/agriculture/ui/crops/crops_screen.dart';
 import 'package:final_project/features/agriculture/ui/home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class NaviagtionbarCubit extends Cubit<int> {
   NaviagtionbarCubit() : super(0);
-  final List<Widget> destinations = const [
+  final List<Widget> destinations = [
     HomeView(),
-    Text('Crops'),
+    CropsScreen(),
     Text('Schedule'),
     Text('Profile'),
   ];
