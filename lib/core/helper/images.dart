@@ -21,4 +21,13 @@ class ImagesPath {
       "assets/animations/loader-animation.json";
   static const String onboardingAnimated =
       'assets/images/onboardingAnimated.json';
+  static const String riceImage = "assets/images/rice.jpeg";
+  static const String wheatImage = "assets/images/wheatimage.jpg";
+  static const String cropsImage = "assets/images/crops.jpg";
+
+  
+  static const String curveImage = 'assets/images/curve.png';
+   static const String riceVector = 'assets/images/rice_vector.png';
+   static const String wheatVector = 'assets/images/wheat_vector.png';
+  
 }

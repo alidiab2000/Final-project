@@ -9,4 +9,5 @@ class Routes {
   static const String profile = '/profile';
   static const String settings = '/settings';
   static const String verifyEmail = '/verifyEmail';
+  static const String cropInfo = '/cropInfo';
 }
