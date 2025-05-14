@@ -8,15 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CropsScreen extends StatelessWidget {
   CropsScreen({super.key});
 
-  final List<String> cropsImage = [
-    ImagesPath.riceImage,
-    ImagesPath.wheatImage,
-    ImagesPath.cropsImage,
-  ];
-  final List<String> cropsNames = ["Rice", "Wheat", "More crops"];
   final List<Map<String, dynamic>> cropsInfo = [
     {
       "name": "Rice",
+      "image_panal": ImagesPath.riceImage,
       "image": ImagesPath.riceVector,
 
       "description":
@@ -26,26 +21,27 @@ class CropsScreen extends StatelessWidget {
       "soilType": "clay soil",
     },
     {
-      "name": "Wheat",
-      "image": ImagesPath.wheatVector,
+      "name": "Cotton",
+      "image_panal": ImagesPath.cottonImage,
+      "image": ImagesPath.cottonVector,
 
       "description":
-          "Wheat is one of Egypt's most important staple crops.The country produces millions of tons annually, mainly in the Nile Delta.Egypt also imports large quantities to meet growing demand.",
+          "Cotton is one of Egypt's major cash crops. The country produces a significant amount of cotton annually, mainly in the Nile Delta and other parts of the country.",
 
-      "waterAmount": "25-30%",
-      "temperature": "20-25°C",
-      "soilType": " clay soil",
+      "waterAmount": "60-80%",
+      "temperature": "18-22°C",
+      "soilType": "well-drained soil",
     },
     {
-      "name": "Wheat",
-      "image": ImagesPath.wheatVector,
+      "name": "More crops",
+      "image_panal": ImagesPath.cropsImage,
+      "image": ImagesPath.comingSoon,
 
-      "description":
-          "Wheat is one of Egypt's most important staple crops.The country produces millions of tons annually, mainly in the Nile Delta.Egypt also imports large quantities to meet growing demand.",
+      "description": "More Crops Coming Soon",
 
-      "waterAmount": "25-30%",
-      "temperature": "20-25°C",
-      "soilType": "Fertile, well-drained clay soil",
+      "waterAmount": "Soon",
+      "temperature": "Soon",
+      "soilType": "Soon",
     },
   ];
 
@@ -54,6 +50,7 @@ class CropsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 50.h,
+        automaticallyImplyLeading: false,
         title: Center(
           child: Text(
             "Crops",
@@ -65,7 +62,7 @@ class CropsScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: GridView.builder(
-            itemCount: cropsImage.length,
+            itemCount: cropsInfo.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, // عدد الأعمدة
               crossAxisSpacing: 0,
@@ -88,7 +85,7 @@ class CropsScreen extends StatelessWidget {
                         width: MediaQuery.of(context).size.width * 0.4,
                         color: Colors.brown.shade100,
                         child: Image.asset(
-                          cropsImage[index],
+                          cropsInfo[index]['image_panal'],
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -103,11 +100,11 @@ class CropsScreen extends StatelessWidget {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.3),
+                        color: Colors.black.withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
-                        cropsNames[index],
+                        cropsInfo[index]['name'],
                         style: TextStyles.font20WhiteBold.copyWith(
                           fontSize: 12.sp,
                         ),

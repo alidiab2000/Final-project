@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CropContainer extends StatelessWidget {
   const CropContainer({super.key, required this.icon, required this.title});
@@ -9,8 +8,8 @@ class CropContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.h,
-      width: 60.w,
+      //height: 50.h,
+      // width: 60.w,
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         color: Color(0xffC7E0AF),
@@ -20,11 +19,7 @@ class CropContainer extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
 
         children: [
-          Icon(
-            icon,
-            color: Colors.green[800],
-            size: 24,
-          ),
+          Icon(icon, color: Colors.green[800], size: 24),
           SizedBox(height: 4),
           Text(
             title,
