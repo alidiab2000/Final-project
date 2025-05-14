@@ -24,8 +24,6 @@ class NpkSensorScreen extends StatelessWidget {
     'Potassium': '67mg/km',
   };
 
-  NpkSensorScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +51,36 @@ class NpkSensorScreen extends StatelessWidget {
                   color: Color(0xff1E640A),
                 ),
               ),
-              SizedBox(height: 31),
-              ...data.entries.map(
-                (entry) => SensorRow(label: entry.key, value: entry.value),
+              SizedBox(height: 30),
+              SensorRow(
+                label: "PH",
+                value: "0.0",
+                controller: TextEditingController(),
+              ),
+              SensorRow(
+                label: "Humidity",
+                value: "0.0",
+                controller: TextEditingController(),
+              ),
+              SensorRow(
+                label: "Temperature",
+                value: "0.0",
+                controller: TextEditingController(),
+              ),
+              SensorRow(
+                label: "Naitrogen",
+                value: "0.0",
+                controller: TextEditingController(),
+              ),
+              SensorRow(
+                label: "Phosphorus",
+                value: "0.0",
+                controller: TextEditingController(),
+              ),
+              SensorRow(
+                label: "Potassium",
+                value: "0.0",
+                controller: TextEditingController(),
               ),
             ],
           ),
@@ -68,25 +93,22 @@ class NpkSensorScreen extends StatelessWidget {
 class SensorRow extends StatefulWidget {
   final String label;
   final String value;
+  final TextEditingController controller;
 
-  const SensorRow({super.key, required this.label, required this.value});
+  const SensorRow({
+    required this.label,
+    required this.value,
+    required this.controller,
+  });
 
   @override
   _SensorRowState createState() => _SensorRowState();
 }
 
 class _SensorRowState extends State<SensorRow> {
-  late TextEditingController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController(text: widget.value);
-  }
-
   @override
   void dispose() {
-    _controller.dispose();
+    widget.controller.dispose();
     super.dispose();
   }
 
@@ -113,7 +135,7 @@ class _SensorRowState extends State<SensorRow> {
               borderRadius: BorderRadius.circular(8),
             ),
             child: TextField(
-              controller: _controller,
+              controller: widget.controller,
               decoration: InputDecoration(border: InputBorder.none),
               style: TextStyle(fontSize: 16, color: Colors.black),
               textAlign: TextAlign.center,
