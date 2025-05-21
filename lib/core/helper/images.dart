@@ -31,4 +31,5 @@ class ImagesPath {
   static const String cottonImage = 'assets/images/cotton.png';
   static const String cottonVector = 'assets/images/cotton_vector.png';
   static const String comingSoon = 'assets/images/coming_soon.png';
+  static const String navBarIcon = 'assets/images/nav_bar_icon.png';
 }

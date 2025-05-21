@@ -48,4 +48,8 @@ class TextStyles {
     fontSize: 14.sp,
     color: Colors.black,
   );
+  static TextStyle font12GrayRegular = TextStyle(
+    fontSize: 12.sp,
+    color: Color(0xff757575),
+  );
 }
