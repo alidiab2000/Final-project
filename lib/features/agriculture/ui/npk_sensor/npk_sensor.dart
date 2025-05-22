@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(NpkSensorApp());
-
 class NpkSensorApp extends StatelessWidget {
   const NpkSensorApp({super.key});
 
@@ -81,6 +79,26 @@ class NpkSensorScreen extends StatelessWidget {
                 label: "Potassium",
                 value: "0.0",
                 controller: TextEditingController(),
+              ),
+
+              const SizedBox(height: 30),
+
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xff1E640A),
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'Send',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
               ),
             ],
           ),
