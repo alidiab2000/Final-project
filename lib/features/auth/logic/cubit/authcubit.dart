@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:final_project/core/widgets/popups/snakbars.dart';
 import 'package:final_project/core/widgets/screens/loading_screen.dart';
 import 'package:final_project/features/auth/data/auth_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -79,20 +80,53 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
+  Future<void> setTimerForAutoRedirect() async {
+    Timer.periodic(const Duration(seconds: 2), (timer) async {
+      FirebaseAuth.instance.currentUser?.reload();
+      final user = FirebaseAuth.instance.currentUser;
+
+      if (user?.emailVerified ?? false) {
+        timer.cancel();
+        emit(EmailVerficationSuccess());
+      }
+    });
+  }
+
   Future<void> sendEmailVerfication() async {
     try {
       emit(EmailVerficationLoading());
       await authRepo.sendEmailVerification();
-      await checkEmailVerified();
+      setTimerForAutoRedirect();
     } catch (e) {
       emit(EmailVerficationFailed(e.toString()));
     }
   }
 
-  Future<void> checkEmailVerified() async {
-    final currentUser = FirebaseAuth.instance.currentUser;
-    if (currentUser != null && currentUser.emailVerified) {
-      emit(EmailVerficationSuccess());
+  Future<void> googleSignIn(BuildContext context) async {
+    try {
+      final userCredential = await authRepo.googleSignIn();
+      if (context.mounted) {
+        CustomSnakbars.successSnackBar(
+          context,
+          title: "Login Successful",
+          message: "Welcome ${userCredential.user?.displayName ?? 'User'}",
+        );
+      }
+      // Show Success SnackBar
+
+      emit(GoogleSignInSuccess());
+    } catch (e) {
+      debugPrint("Google Sign In Error: $e");
+      if (context.mounted) {
+        CustomSnakbars.errorSnackBar(
+          context,
+          title: "Login Failed",
+          message: e.toString(),
+        );
+      }
+
+      emit(GoogleSignInFailed(e.toString()));
+   
     }
   }
 }

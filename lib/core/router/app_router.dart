@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:final_project/core/di/service_locater.dart';
 import 'package:final_project/features/agriculture/ui/crops/crop_info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,6 +14,8 @@ import '../../features/agriculture/logic/navigationbar_cubit/naviagtionbar_cubit
 import '../../features/agriculture/ui/weather/weather_view.dart';
 import '../../features/auth/ui/forget_password/forget_pass_view.dart';
 import '../../features/auth/ui/login/login_screen.dart';
+import '../../features/location/logic/location_cubit.dart';
+import '../../features/location/ui/location_view.dart';
 import 'router.dart';
 
 class AppRouter {
@@ -32,6 +35,7 @@ class AppRouter {
                 child: LoginScreen(),
               ),
         );
+
       case Routes.register:
         return MaterialPageRoute(
           builder:
@@ -65,12 +69,23 @@ class AppRouter {
                 child: NavigationBarMenuView(),
               ),
         );
-         case Routes.cropInfo:
-        return MaterialPageRoute(builder: (_) => CropInfoScreen(cropInfo: args as Map<String,dynamic>,));
-     
+      case Routes.cropInfo:
+        return MaterialPageRoute(
+          builder:
+              (_) => CropInfoScreen(cropInfo: args as Map<String, dynamic>),
+        );
+
       case Routes.weatherView:
         return MaterialPageRoute(builder: (_) => WeatherView());
-        
+      case Routes.location:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create:
+                    (context) => getIt<LocationCubit>(),
+                child: LocationView(),
+              ),
+        );
       default:
         return MaterialPageRoute(
           builder:
@@ -79,7 +94,6 @@ class AppRouter {
                   child: Text('No route defined for ${settings.name}'),
                 ),
               ),
-              
         );
     }
   }

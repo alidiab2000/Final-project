@@ -3,7 +3,12 @@ part of 'authcubit.dart';
 class AuthState {}
 
 class AuthInitial extends AuthState {}
-
+class GoogleSignInSuccess extends AuthState {}
+class GoogleSignInFailed extends AuthState {
+  final String error;
+  GoogleSignInFailed(this.error);
+}
+class GoogleSignInLoading extends AuthState {}
 class ForgetPasswordLoading extends AuthState {}
 
 class ForgetPasswordSuccess extends AuthState {}

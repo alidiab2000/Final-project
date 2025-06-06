@@ -14,11 +14,7 @@ import '../../../../core/widgets/screens/loading_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
-
-
-
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -40,7 +36,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Welcome Back', style: TextStyles.font24GreenBold),
+                  Text('Log In', style: TextStyles.font24GreenBold),
                   Text(
                     "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
                     style: TextStyles.font14GrayRegular,
