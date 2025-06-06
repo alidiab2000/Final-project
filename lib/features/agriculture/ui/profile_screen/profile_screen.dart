@@ -2,32 +2,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Profile Demo',
-      theme: ThemeData(primarySwatch: Colors.green),
-      home: const ProfileScreen(
-        userName: 'Yousef Abdelmaksoud',
-        userEmail: 'yousefjo792@gmai',
-      ),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
 class ProfileScreen extends StatefulWidget {
   final String userName;
   final String userEmail;
 
   const ProfileScreen({
-    Key? key,
+    super.key,
     required this.userName,
     required this.userEmail,
-  }) : super(key: key);
+  });
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -75,12 +58,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 CircleAvatar(
                   radius: 50,
                   backgroundColor: Colors.grey[300],
-                  backgroundImage: _profileImage != null
-                      ? FileImage(_profileImage!)
-                      : null,
-                  child: _profileImage == null
-                      ? const Icon(Icons.person, size: 50, color: Colors.white)
-                      : null,
+                  backgroundImage:
+                      _profileImage != null ? FileImage(_profileImage!) : null,
+                  child:
+                      _profileImage == null
+                          ? const Icon(
+                            Icons.person,
+                            size: 50,
+                            color: Colors.white,
+                          )
+                          : null,
                 ),
                 Positioned(
                   bottom: 0,
