@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:final_project/app.dart';
 import 'package:final_project/core/bloc_obs/bloc_observer.dart';
+import 'package:final_project/core/di/service_locater.dart';
 import 'package:final_project/core/router/app_router.dart';
 import 'package:final_project/core/widgets/functions/check_login_user.dart';
 import 'package:final_project/firebase_options.dart';
@@ -19,6 +20,7 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   String initialRoute = await checkIfLoggedInAndVerfiedUser();
   AppRouter appRouter = AppRouter(initialRoute: initialRoute);
+  initGetIt();
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     setWindowMaxSize(const Size(393, 852));
     setWindowMinSize(const Size(393, 852));

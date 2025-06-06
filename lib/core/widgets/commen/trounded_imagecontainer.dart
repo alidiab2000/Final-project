@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RoundedImageContainer extends StatelessWidget {
-  const RoundedImageContainer({super.key, required this.image});
+  const RoundedImageContainer({super.key, required this.image, this.onTap});
   final String image;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onTap,
       child: Container(
         height: 50.h,
         width: 50.w,

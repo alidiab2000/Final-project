@@ -18,7 +18,7 @@ Future<String> checkIfLoggedInAndVerfiedUser() async {
 
     if (user.emailVerified) {
       debugPrint("Email is verified.");
-      return Routes.home;
+      return Routes.navigationBarMenu;
     } else {
       debugPrint("Email is not verified.");
       return Routes.verifyEmail;

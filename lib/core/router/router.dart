@@ -10,4 +10,6 @@ class Routes {
   static const String settings = '/settings';
   static const String verifyEmail = '/verifyEmail';
   static const String cropInfo = '/cropInfo';
+  static const String location = '/location';
+
 }
