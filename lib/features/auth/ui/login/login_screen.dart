@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
                 if (state is LoginSuccess) {
                   // Delayed navigation
                   FullscreenLoader.stopLoading(context);
-                  context.pushReplacementNamed(Routes.home);
+                  context.pushReplacementNamed(Routes.navigationBarMenu);
                 }
               },
               child: Column(

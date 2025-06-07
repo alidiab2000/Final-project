@@ -2,21 +2,21 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ProfileScreen extends StatefulWidget {
+class ProfileView extends StatefulWidget {
   final String userName;
   final String userEmail;
 
-  const ProfileScreen({
+  const ProfileView({
     super.key,
     required this.userName,
     required this.userEmail,
   });
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<ProfileView> createState() => _ProfileViewState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileViewState extends State<ProfileView> {
   File? _profileImage;
 
   Future<void> _pickImage() async {
