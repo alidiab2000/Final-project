@@ -1,3 +1,4 @@
+import 'package:final_project/features/agriculture/ui/weather/logic/models/weather_api_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,12 +6,11 @@ import '../../../../../core/helper/images.dart';
 import '../../../../../core/themes/styles.dart';
 
 class WeaterCard extends StatelessWidget {
-  const WeaterCard({super.key});
-
+  const WeaterCard({super.key, required this.weatherModel});
+  final WeatherModel weatherModel;
   @override
   Widget build(BuildContext context) {
     return Container(
-      
       padding: EdgeInsets.all(12),
       width: double.infinity,
       decoration: BoxDecoration(
@@ -30,7 +30,7 @@ class WeaterCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "25°",
+                    weatherModel.avgTemp.toString(),
                     style: TextStyle(
                       fontSize: 50,
                       fontWeight: FontWeight.bold,
@@ -42,15 +42,18 @@ class WeaterCard extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 10.h),
-              Text("High: 30° | Low: 20°", style: TextStyles.font14GrayRegular),
+              Text(
+                "High: ${weatherModel.maxTemp!.toInt()} | Low: ${weatherModel.minTemp!.toInt()}°",
+                style: TextStyles.font14GrayRegular,
+              ),
             ],
           ),
           SizedBox(width: 20.w),
           Column(
             children: [
-              Text("Cloudy", style: TextStyles.font20BlackBold),
+              Text(weatherModel.weatherstate!, style: TextStyles.font20BlackBold),
               SizedBox(height: 10.h),
-              Text("Feels like 25°", style: TextStyles.font14GrayRegular),
+              Text("Feels like ${weatherModel.feelsLike!.toInt()}°", style: TextStyles.font14GrayRegular),
             ],
           ),
         ],
