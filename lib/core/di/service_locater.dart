@@ -6,4 +6,6 @@ final getIt = GetIt.instance;
 void initGetIt() {
   getIt.registerLazySingleton<LocationCubit>(() => LocationCubit(getIt()));
   getIt.registerLazySingleton<LocationService>(() => LocationService());
+
+
 }

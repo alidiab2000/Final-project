@@ -8,11 +8,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/coming_weather.dart';
 import 'widgets/weather_card.dart';
 
-class WeatherView extends StatelessWidget {
+class WeatherView extends StatefulWidget {
   const WeatherView({super.key});
 
   @override
+  State<WeatherView> createState() => _WeatherViewState();
+}
+
+
+
+class _WeatherViewState extends State<WeatherView> {
+ @override
+  void initState() {
+    super.initState();
+    context.read<WeatherCubit>().getWeather(cityname: "cairo");
+ }
+  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorsManager.maingreen,
@@ -23,8 +36,8 @@ class WeatherView extends StatelessWidget {
         builder: (context, state) {
           if (state is WeatherLoading) {
             return const Center(child: CircularProgressIndicator());
-          }else if(state is WeatherSuccess){
-             return SingleChildScrollView(
+          } else if (state is WeatherSuccess) {
+            return SingleChildScrollView(
               child: Column(
                 children: [
                   Padding(
@@ -48,29 +61,66 @@ class WeatherView extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                ComingWeather(),
-                                ComingWeather(),
-                                ComingWeather(),
-                                ComingWeather(),
+                                ComingWeather(
+                                  avgTemp:
+                                      state.weatherModel.avgTempcomingday1!
+                                          .toInt()
+                                          .toString(),
+                                ),
+                                ComingWeather(
+                                  avgTemp:
+                                      state.weatherModel.avgTempcomingday2!
+                                          .toInt()
+                                          .toString(),
+                                ),
+                                ComingWeather(
+                                  avgTemp:
+                                      state.weatherModel.avgTempcomingday3!
+                                          .toInt()
+                                          .toString(),
+                                ),
+                                ComingWeather(
+                                  avgTemp:
+                                      state.weatherModel.avgTempcomingday4!
+                                          .toInt()
+                                          .toString(),
+                                ),
                               ],
                             ),
                           ],
                         ),
                         SizedBox(height: 20.h),
 
-                        ComingWeatherGridView(),
+                        ComingWeatherGridView(weatherModel: state.weatherModel),
                       ],
                     ),
                   ),
                 ],
               ),
             );
-          }else if (state is WeatherFailed){
-            return Center(child: Text(state.error),);
-          }else{
+          } else if (state is WeatherFailed) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.error_outline, color: Colors.black, size: 80),
+                  SizedBox(height: 16),
+                  Text(
+                    "Something went wrong",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    state.error,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                  ),
+                ],
+              ),
+            );
+          } else {
             return Container();
           }
-         
         },
       ),
     );
