@@ -17,6 +17,6 @@ class CheckPasswrdMatch {
       }
     }
 
-    return null;  
+    return null;
   }
 }

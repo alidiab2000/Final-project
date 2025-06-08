@@ -12,10 +12,9 @@ class WeatherModel {
   String? sunset;
   double? feelsLike;
   int? avgTempcomingday1;
-  int? avgTempcomingday2; 
+  int? avgTempcomingday2;
   int? avgTempcomingday3;
   int? avgTempcomingday4;
-  
 
   WeatherModel({
     required this.date,
@@ -35,7 +34,7 @@ class WeatherModel {
     required this.avgTempcomingday3,
     required this.avgTempcomingday4,
   });
-  factory WeatherModel.fromjson(dynamic data) {
+  factory WeatherModel.fromjson(Map<String, dynamic> data) {
     var jsondata = data['forcast']['forcastday'][0]['day'];
     var sundata = data['forcast']['forcastday'][0]['astro'];
     print("temp=${jsondata['avgtemp_c']}");
@@ -50,14 +49,12 @@ class WeatherModel {
       windSpeed: jsondata["maxwind_kph"],
       totalPercipitation: jsondata['totalprecip_mm'],
       sunrise: sundata['sunrise'],
-      sunset: sundata['sunset'], 
+      sunset: sundata['sunset'],
       feelsLike: data['forcast']['forcastday'][0]['hour']['feelslike_c'],
-       avgTempcomingday1: data['forcast']['forcastday'][1]['day']['avgtemp_c'], 
-       avgTempcomingday2: data['forcast']['forcastday'][2]['day']['avgtemp_c'], 
-       avgTempcomingday3: data['forcast']['forcastday'][3]['day']['avgtemp_c'], 
-       avgTempcomingday4: data['forcast']['forcastday'][4]['day']['avgtemp_c'],
-
-
+      avgTempcomingday1: data['forcast']['forcastday'][1]['day']['avgtemp_c'],
+      avgTempcomingday2: data['forcast']['forcastday'][2]['day']['avgtemp_c'],
+      avgTempcomingday3: data['forcast']['forcastday'][3]['day']['avgtemp_c'],
+      avgTempcomingday4: data['forcast']['forcastday'][4]['day']['avgtemp_c'],
     );
   }
 }

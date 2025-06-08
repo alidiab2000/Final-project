@@ -51,9 +51,15 @@ class WeaterCard extends StatelessWidget {
           SizedBox(width: 20.w),
           Column(
             children: [
-              Text(weatherModel.weatherstate!, style: TextStyles.font20BlackBold),
+              Text(
+                weatherModel.weatherstate!,
+                style: TextStyles.font20BlackBold,
+              ),
               SizedBox(height: 10.h),
-              Text("Feels like ${weatherModel.feelsLike!.toInt()}°", style: TextStyles.font14GrayRegular),
+              Text(
+                "Feels like ${weatherModel.feelsLike!.toInt()}°",
+                style: TextStyles.font14GrayRegular,
+              ),
             ],
           ),
         ],

@@ -126,7 +126,6 @@ class AuthCubit extends Cubit<AuthState> {
       }
 
       emit(GoogleSignInFailed(e.toString()));
-   
     }
   }
 }

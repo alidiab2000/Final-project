@@ -10,6 +10,5 @@ class Routes {
   static const String verifyEmail = '/verifyEmail';
   static const String cropInfo = '/cropInfo';
   static const String location = '/location';
-
-
+  static const String recommendationScreen = '/recommendationScreen';
 }

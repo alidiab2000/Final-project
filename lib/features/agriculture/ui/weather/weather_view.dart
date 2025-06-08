@@ -23,8 +23,8 @@ class WeatherView extends StatelessWidget {
         builder: (context, state) {
           if (state is WeatherLoading) {
             return const Center(child: CircularProgressIndicator());
-          }else if(state is WeatherSuccess){
-             return SingleChildScrollView(
+          } else if (state is WeatherSuccess) {
+            return SingleChildScrollView(
               child: Column(
                 children: [
                   Padding(
@@ -65,12 +65,11 @@ class WeatherView extends StatelessWidget {
                 ],
               ),
             );
-          }else if (state is WeatherFailed){
-            return Center(child: Text(state.error),);
-          }else{
+          } else if (state is WeatherFailed) {
+            return Center(child: Text(state.error));
+          } else {
             return Container();
           }
-         
         },
       ),
     );

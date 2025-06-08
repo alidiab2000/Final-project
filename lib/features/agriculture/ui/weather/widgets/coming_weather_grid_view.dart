@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -6,9 +5,7 @@ import '../../../../../core/helper/images.dart';
 import '../../../../../core/themes/styles.dart';
 
 class ComingWeatherGridView extends StatelessWidget {
-  const ComingWeatherGridView({
-    super.key,
-  });
+  const ComingWeatherGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +18,11 @@ class ComingWeatherGridView extends StatelessWidget {
       itemCount: 4,
       itemBuilder:
           (context, index) => Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 20,
-              horizontal: 5,
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
             child: Container(
               padding: EdgeInsets.all(12),
               height: 80.h,
-    
+
               decoration: BoxDecoration(
                 //border: Border.all(color: Colors.grey, width: 0.5),
                 color: Color(0xffF4FFF1),
@@ -45,13 +39,11 @@ class ComingWeatherGridView extends StatelessWidget {
                       children: [
                         Text(
                           "Air Quality",
-                          style: TextStyles.font20BlackBold
-                              .copyWith(fontSize: 14.sp),
+                          style: TextStyles.font20BlackBold.copyWith(
+                            fontSize: 14.sp,
+                          ),
                         ),
-                        Text(
-                          "12 Km/h",
-                          style: TextStyles.font14BlackRegular,
-                        ),
+                        Text("12 Km/h", style: TextStyles.font14BlackRegular),
                       ],
                     ),
                   ),
