@@ -42,4 +42,5 @@ Dio createAndSetupDio() {
     ),
   );
   return dio;
+
 }

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
 
+
 class WeatherService {
   final Dio dio;
   final String baseUrl = 'http://api.weatherapi.com/v1';
