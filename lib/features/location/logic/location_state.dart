@@ -10,10 +10,7 @@ class LocationLoaded extends LocationState {
   final LocationData locationData;
   final bool isTracking;
 
-  LocationLoaded({
-    required this.locationData,
-    this.isTracking = false,
-  });
+  LocationLoaded({required this.locationData, this.isTracking = false});
 }
 
 class LocationPermissionDenied extends LocationState {

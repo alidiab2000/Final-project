@@ -1,6 +1,8 @@
 import 'package:final_project/core/di/service_locater.dart';
+import 'package:final_project/features/agriculture/logic/recommendation_cubit/recommendations_cubit.dart';
 import 'package:final_project/features/agriculture/ui/crops/crop_info_screen.dart';
 import 'package:final_project/features/agriculture/logic/weather_cubit/weather_cubit.dart';
+import 'package:final_project/features/agriculture/ui/recommendation_screen/recommendation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
@@ -77,7 +79,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                create: (context) => WeatherCubit(),
+                create: (context) => getIt<WeatherCubit>(),
                 child: WeatherView(),
               ),
         );
@@ -86,12 +88,18 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                create:
-                    (context) => getIt<LocationCubit>(),
+                create: (context) => getIt<LocationCubit>(),
                 child: LocationView(),
               ),
         );
-  
+      case Routes.recommendationScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<RecommendationsCubit>(),
+                child: RecommendationScreen(),
+              ),
+        );
       default:
         return MaterialPageRoute(
           builder:

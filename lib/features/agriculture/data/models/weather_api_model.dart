@@ -18,6 +18,7 @@ class WeatherModel {
 
   
 
+
   WeatherModel({
     required this.date,
     required this.avgTemp,
@@ -57,6 +58,7 @@ class WeatherModel {
       avgTempcomingday2: data['forcast']['forecastday'][2]['day']['avgtemp_c'],
       avgTempcomingday3: data['forecast']['forecastday'][3]['day']['avgtemp_c'],
       avgTempcomingday4: data['forecast']['forecastday'][4]['day']['avgtemp_c'],
+
     );
   }
 }

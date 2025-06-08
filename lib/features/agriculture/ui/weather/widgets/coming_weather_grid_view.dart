@@ -1,17 +1,18 @@
-
 import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/helper/images.dart';
 import '../../../../../core/themes/styles.dart';
 
 class ComingWeatherGridView extends StatelessWidget {
+
    ComingWeatherGridView({
     super.key, required this.weatherModel,
   });
   final WeatherModel weatherModel;
   
+  const ComingWeatherGridView({super.key});
+
   @override
   Widget build(BuildContext context) {
     final List weatherDetails = [{
@@ -51,14 +52,11 @@ class ComingWeatherGridView extends StatelessWidget {
       itemCount: 4,
       itemBuilder:
           (context, index) => Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 20,
-              horizontal: 5,
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
             child: Container(
               padding: EdgeInsets.all(12),
               height: 80.h,
-    
+
               decoration: BoxDecoration(
                 //border: Border.all(color: Colors.grey, width: 0.5),
                 color: Color(0xffF4FFF1),
@@ -81,7 +79,13 @@ class ComingWeatherGridView extends StatelessWidget {
                         Text(
                           weatherDetails[index]["value"],
                           style: TextStyles.font14BlackRegular,
+                          "Air Quality",
+                          style: TextStyles.font20BlackBold.copyWith(
+                            fontSize: 14.sp,
+                          ),
+
                         ),
+                        Text("12 Km/h", style: TextStyles.font14BlackRegular),
                       ],
                     ),
                   ),

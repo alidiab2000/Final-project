@@ -5,7 +5,7 @@ class LocationData {
   final double longitude;
   final double accuracy;
   final double altitude;
- 
+
   final DateTime timestamp;
   final String? locationName;
   final String? address;

@@ -118,6 +118,8 @@ class _WeatherViewState extends State<WeatherView> {
                 ],
               ),
             );
+            return Center(child: Text(state.error));
+
           } else {
             return Container();
           }
