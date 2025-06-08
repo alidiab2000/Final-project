@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:final_project/features/agriculture/ui/weather/logic/models/weather_api_model.dart';
-import 'package:final_project/features/agriculture/ui/weather/logic/services/weather_services.dart';
+import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
+import 'package:final_project/features/agriculture/data/services/weather_services.dart';
 import 'package:meta/meta.dart';
 
 part 'weather_state.dart';

@@ -1,6 +1,6 @@
 import 'package:final_project/core/di/service_locater.dart';
 import 'package:final_project/features/agriculture/ui/crops/crop_info_screen.dart';
-import 'package:final_project/features/agriculture/ui/weather/logic/cubit/weather_cubit.dart';
+import 'package:final_project/features/agriculture/logic/weather_cubit/weather_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
@@ -82,7 +82,6 @@ class AppRouter {
               ),
         );
 
-        return MaterialPageRoute(builder: (_) => WeatherView());
       case Routes.location:
         return MaterialPageRoute(
           builder:
