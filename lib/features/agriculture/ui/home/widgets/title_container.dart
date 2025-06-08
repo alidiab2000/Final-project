@@ -1,4 +1,5 @@
 import 'package:final_project/core/themes/styles.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,6 +8,7 @@ class TitleContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentUser = FirebaseAuth.instance.currentUser;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
       child: Row(
@@ -15,8 +17,11 @@ class TitleContainer extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Good Morning", style: TextStyles.font28BlackBold),
-              Text("Sun, Mar 12 , 2025", style: TextStyles.font14GrayRegular),
+              Text(
+                "Good Morning ${currentUser?.displayName}",
+                style: TextStyles.font24BlackBold,
+              ),
+              Text("Welcome back ", style: TextStyles.font14GrayRegular),
             ],
           ),
           IconButton(

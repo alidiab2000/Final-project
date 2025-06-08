@@ -16,8 +16,6 @@ class WaterRatio extends StatelessWidget {
         children: [
           CategoryTitle(title: "Water Ratio", onTap: () {}),
           SizedBox(height: 20.h),
-
-          // TODO : Add water ratio chart
           SizedBox(
             height: 200.h,
             child: LineChart(

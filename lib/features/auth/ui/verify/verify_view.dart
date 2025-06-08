@@ -33,7 +33,7 @@ class _VerificationEmailScreenState extends State<VerificationEmailScreen> {
           child: BlocListener<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is EmailVerficationSuccess) {
-                context.pushNamed(Routes.home);
+                context.pushNamed(Routes.navigationBarMenu );
               }else if (state is EmailVerficationFailed) {
                 CustomSnakbars.errorSnackBar(context, title: state.error);
               }

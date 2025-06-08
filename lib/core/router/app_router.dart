@@ -1,19 +1,19 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:final_project/core/di/service_locater.dart';
 import 'package:final_project/features/agriculture/ui/crops/crop_info_screen.dart';
 import 'package:final_project/features/agriculture/ui/weather/logic/cubit/weather_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
 import 'package:final_project/features/auth/ui/register/register_view.dart';
 import 'package:final_project/features/auth/ui/verify/verify_view.dart';
 import 'package:final_project/features/agriculture/ui/navigationbar/navigationbar_menu_view.dart';
 import 'package:final_project/features/auth/ui/onboarding/ui/onboarding_view.dart';
-
 import '../../features/agriculture/logic/navigationbar_cubit/naviagtionbar_cubit.dart';
 import '../../features/agriculture/ui/weather/weather_view.dart';
 import '../../features/auth/ui/forget_password/forget_pass_view.dart';
 import '../../features/auth/ui/login/login_screen.dart';
+import '../../features/location/logic/location_cubit.dart';
+import '../../features/location/ui/location_view.dart';
 import 'router.dart';
 
 class AppRouter {
@@ -33,6 +33,7 @@ class AppRouter {
                 child: LoginScreen(),
               ),
         );
+
       case Routes.register:
         return MaterialPageRoute(
           builder:
@@ -81,6 +82,17 @@ class AppRouter {
               ),
         );
 
+        return MaterialPageRoute(builder: (_) => WeatherView());
+      case Routes.location:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create:
+                    (context) => getIt<LocationCubit>(),
+                child: LocationView(),
+              ),
+        );
+  
       default:
         return MaterialPageRoute(
           builder:

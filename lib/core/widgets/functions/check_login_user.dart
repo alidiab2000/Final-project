@@ -18,7 +18,8 @@ Future<String> checkIfLoggedInAndVerfiedUser() async {
 
     if (user.emailVerified) {
       debugPrint("Email is verified.");
-      return Routes.home;
+      final isLocationGiven = await checkIfLocationGiven();
+      return isLocationGiven;
     } else {
       debugPrint("Email is not verified.");
       return Routes.verifyEmail;
@@ -34,4 +35,18 @@ Future<String> checkIfLoggedInAndVerfiedUser() async {
   }
 
   return Routes.login;
+}
+
+Future<String> checkIfLocationGiven() async {
+  final prefs = await SharedPreferences.getInstance();
+  const String isLocationGivenKey = "isLocationGiven";
+  final isLocationGiven = prefs.getBool(isLocationGivenKey) ?? true;
+
+  if (isLocationGiven) {
+    return Routes.navigationBarMenu;
+  } else {
+    debugPrint("Location is not given.");
+    prefs.setBool(isLocationGivenKey, true);
+    return Routes.location;
+  }
 }

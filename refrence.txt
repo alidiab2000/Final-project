@@ -6,3 +6,4 @@ weatherapi-site = https://www.weatherapi.com/docs/
 api = http://api.weatherapi.com/v1
 api key = 1fe4c54325184009af2192535230605
 
+EX = "http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={location}&days=7"
