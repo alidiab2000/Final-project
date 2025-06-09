@@ -5,43 +5,35 @@ import '../../../../../core/helper/images.dart';
 import '../../../../../core/themes/styles.dart';
 
 class ComingWeatherGridView extends StatelessWidget {
-
-   ComingWeatherGridView({
-    super.key, required this.weatherModel,
-  });
+  const ComingWeatherGridView({super.key, required this.weatherModel});
   final WeatherModel weatherModel;
-  
-  const ComingWeatherGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List weatherDetails = [{
-    { 
-      "title":"Wind Speed",
-      "image":ImagesPath.air,
-      "value": "${weatherModel.windSpeed!.toInt() }Km/hr",
-      
-    },
-    {
-      "title":"Precipitation",
-      "image":ImagesPath.rain,
-      "value": "${weatherModel.totalPercipitation!.toInt()}%",
-      
-    },
-    {
-      "title":"Sunrise/Sunset",
-      "image":ImagesPath.sunrise,
-      "value":"${weatherModel.sunrise} / ${weatherModel.sunset}", 
-      
-    },
-    {
-      "title":"Humidity",
-      "image":ImagesPath.humidity,
-      "value":"${weatherModel.humidity}%" ,
-      
-    },
-  }
-  ];
+    final List weatherDetails = [
+      {
+        {
+          "title": "Wind Speed",
+          "image": ImagesPath.air,
+          "value": "${weatherModel.windSpeed!.toInt()}Km/hr",
+        },
+        {
+          "title": "Precipitation",
+          "image": ImagesPath.rain,
+          "value": "${weatherModel.totalPercipitation!.toInt()}%",
+        },
+        {
+          "title": "Sunrise/Sunset",
+          "image": ImagesPath.sunrise,
+          "value": "${weatherModel.sunrise} / ${weatherModel.sunset}",
+        },
+        {
+          "title": "Humidity",
+          "image": ImagesPath.humidity,
+          "value": "${weatherModel.humidity}%",
+        },
+      },
+    ];
 
     return GridView.builder(
       shrinkWrap: true,
@@ -73,17 +65,13 @@ class ComingWeatherGridView extends StatelessWidget {
                       children: [
                         Text(
                           weatherDetails[index]["title"],
-                          style: TextStyles.font20BlackBold
-                              .copyWith(fontSize: 14.sp),
+                          style: TextStyles.font20BlackBold.copyWith(
+                            fontSize: 14.sp,
+                          ),
                         ),
                         Text(
                           weatherDetails[index]["value"],
                           style: TextStyles.font14BlackRegular,
-                          "Air Quality",
-                          style: TextStyles.font20BlackBold.copyWith(
-                            fontSize: 14.sp,
-                          ),
-
                         ),
                         Text("12 Km/h", style: TextStyles.font14BlackRegular),
                       ],

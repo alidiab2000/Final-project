@@ -10,8 +10,8 @@ CropsRecommendationsResponse _$CropsRecommendationsResponseFromJson(
   Map<String, dynamic> json,
 ) => CropsRecommendationsResponse(
   recommendations:
-      (json['recommendations'] as List<dynamic>?)
-          ?.map((e) => Recommendation.fromJson(e as Map<String, dynamic>))
+      (json['recommendations'] as List<dynamic>)
+          .map((e) => Recommendation.fromJson(e as Map<String, dynamic>))
           .toList(),
 );
 

@@ -1,8 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 import 'weekly_weather_datum.dart';
-
 part 'crops_recommendations_request.g.dart';
 
 @JsonSerializable()

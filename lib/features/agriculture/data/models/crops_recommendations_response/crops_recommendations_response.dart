@@ -7,9 +7,9 @@ part 'crops_recommendations_response.g.dart';
 
 @JsonSerializable()
 class CropsRecommendationsResponse {
-  List<Recommendation>? recommendations;
+  List<Recommendation> recommendations;
 
-  CropsRecommendationsResponse({this.recommendations});
+  CropsRecommendationsResponse({required this.recommendations});
 
   factory CropsRecommendationsResponse.fromJson(Map<String, dynamic> json) {
     return _$CropsRecommendationsResponseFromJson(json);

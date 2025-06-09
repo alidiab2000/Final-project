@@ -11,6 +11,11 @@ class RecommendationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<RecommendationsCubit>();
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Recommendation'),
+        backgroundColor: const Color(0xff1E640A),
+        centerTitle: true,
+      ),
       backgroundColor: Colors.white,
       body: Form(
         key: cubit.formKey,
@@ -28,7 +33,6 @@ class RecommendationScreen extends StatelessWidget {
                       title: "Success",
                       message: "Sent successfully",
                     );
-                    debugPrint("Recommendations: ${state.recommendations}");
                   } else if (state is RecommendationsError) {
                     debugPrint("Error: ${state.message}");
                     CustomSnakbars.errorSnackBar(
@@ -41,16 +45,6 @@ class RecommendationScreen extends StatelessWidget {
                 builder: (context, state) {
                   return Column(
                     children: [
-                      SizedBox(height: 20),
-                      Text(
-                        'Recommendation',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff1E640A),
-                        ),
-                      ),
-                      SizedBox(height: 30),
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(8),
@@ -63,37 +57,30 @@ class RecommendationScreen extends StatelessWidget {
                           children: [
                             FieldInputSection(
                               label: "PH",
-
                               controller: cubit.phController,
                             ),
                             FieldInputSection(
                               label: "Humidity",
-
                               controller: cubit.humidityController,
                             ),
                             FieldInputSection(
                               label: "Temperature",
-
                               controller: cubit.tempController,
                             ),
                             FieldInputSection(
                               label: "Naitrogen",
-
                               controller: cubit.nController,
                             ),
                             FieldInputSection(
                               label: "Phosphorus",
-
                               controller: cubit.pController,
                             ),
                             FieldInputSection(
                               label: "Potassium",
-
                               controller: cubit.kController,
                             ),
                             FieldInputSection(
                               label: "Rainfall",
-
                               controller: cubit.rainfallController,
                             ),
                           ],
@@ -101,7 +88,6 @@ class RecommendationScreen extends StatelessWidget {
                       ),
 
                       const SizedBox(height: 20),
-
                       SizedBox(
                         width: double.infinity,
                         height: 50,

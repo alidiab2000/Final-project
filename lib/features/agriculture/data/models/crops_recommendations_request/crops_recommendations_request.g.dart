@@ -19,8 +19,12 @@ CropsRecommendationsRequest _$CropsRecommendationsRequestFromJson(
 
 Map<String, dynamic> _$CropsRecommendationsRequestToJson(
   CropsRecommendationsRequest instance,
-) => <String, dynamic>{
-  'crop': instance.crop,
-  'area': instance.area,
-  'weekly_weather_data': instance.weeklyWeatherData,
-};
+) {
+  final weeklyWeatherData =
+      instance.weeklyWeatherData!.map((e) => e.toJson()).toList();
+  return <String, dynamic>{
+    'crop': instance.crop,
+    'area': instance.area,
+    'weekly_weather_data': weeklyWeatherData,
+  };
+}

@@ -36,13 +36,14 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
       isLoading = true;
       emit(RecommendationsLoading());
       try {
-        CropsRecommendationsResponse recommendations  =
+        CropsRecommendationsResponse recommendations =
             await recommendationServices.getRecommendations(
               request: CropsRecommendationsRequest(
                 area: 1000,
                 crop: "rice",
                 weeklyWeatherData: [
                   WeeklyWeatherDatum(
+                    date: DateTime.now().toString().substring(0, 10),
                     ph: double.parse(phController.text),
                     n: double.parse(nController.text),
                     p: double.parse(pController.text),

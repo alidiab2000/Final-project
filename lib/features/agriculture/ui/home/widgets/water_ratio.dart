@@ -1,3 +1,5 @@
+import 'package:final_project/core/helper/extensions.dart';
+import 'package:final_project/core/router/router.dart';
 import 'package:final_project/core/themes/styles.dart';
 import 'package:final_project/features/agriculture/ui/home/widgets/category_title.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -14,7 +16,10 @@ class WaterRatio extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CategoryTitle(title: "Water Ratio", onTap: () {}),
+          CategoryTitle(
+            title: "Water Ratio",
+            onTap: () => context.pushNamed(Routes.recommendationScreen),
+          ),
           SizedBox(height: 20.h),
           SizedBox(
             height: 200.h,

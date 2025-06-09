@@ -5,20 +5,20 @@ part 'recommendation.g.dart';
 
 @JsonSerializable()
 class Recommendation {
-  int? area;
-  String? date;
-  double? temperature;
+  int area;
+  String date;
+  double temperature;
   @JsonKey(name: 'total_water_usage')
-  String? totalWaterUsage;
+  String totalWaterUsage;
   @JsonKey(name: 'water_usage_per_sqm')
-  String? waterUsagePerSqm;
+  String waterUsagePerSqm;
 
   Recommendation({
-    this.area,
-    this.date,
-    this.temperature,
-    this.totalWaterUsage,
-    this.waterUsagePerSqm,
+    required this.area,
+    required this.date,
+    required this.temperature,
+    required this.totalWaterUsage,
+    required this.waterUsagePerSqm,
   });
 
   factory Recommendation.fromJson(Map<String, dynamic> json) {

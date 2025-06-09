@@ -66,6 +66,7 @@ class AppRouter {
           builder:
               (_) => BlocProvider(
                 create: (context) => NaviagtionbarCubit(),
+
                 child: NavigationBarMenuView(),
               ),
         );

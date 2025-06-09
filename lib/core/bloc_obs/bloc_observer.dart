@@ -20,4 +20,10 @@ class MyBlocObserver extends BlocObserver {
     super.onError(bloc, error, stackTrace);
     debugPrint('${bloc.runtimeType} $error');
   }
+
+  @override
+  void onClose(BlocBase bloc) {
+    super.onClose(bloc);
+    debugPrint('${bloc.runtimeType} closed');
+  }
 }

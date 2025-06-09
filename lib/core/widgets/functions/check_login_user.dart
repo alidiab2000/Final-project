@@ -24,6 +24,8 @@ Future<String> checkIfLoggedInAndVerfiedUser() async {
       debugPrint("Email is not verified.");
       return Routes.verifyEmail;
     }
+  } else {
+    debugPrint("User is not logged in.");
   }
 
   // Handle first-time user logic

@@ -10,17 +10,19 @@ import '../../features/agriculture/logic/recommendation_cubit/recommendations_cu
 final getIt = GetIt.instance;
 void initGetIt() {
   // Location
-  getIt.registerLazySingleton<LocationCubit>(() => LocationCubit(getIt()));
+  getIt.registerFactory<LocationCubit>(() => LocationCubit(getIt()));
   getIt.registerLazySingleton<LocationService>(() => LocationService());
-  
-  
+
   // Recommendations
-  getIt.registerLazySingleton<RecommendationsCubit>(() => RecommendationsCubit(getIt()));
-  getIt.registerLazySingleton<RecommendationServices>(() => RecommendationServices(getIt()));
-  
-  
+  getIt.registerFactory<RecommendationsCubit>(
+    () => RecommendationsCubit(getIt()),
+  );
+  getIt.registerLazySingleton<RecommendationServices>(
+    () => RecommendationServices(getIt()),
+  );
+
   // Weather
-  getIt.registerLazySingleton<WeatherCubit>(() => WeatherCubit(getIt()));
+  getIt.registerFactory<WeatherCubit>(() => WeatherCubit(getIt()));
   getIt.registerLazySingleton<WeatherService>(() => WeatherService(getIt()));
   getIt.registerLazySingleton<Dio>(() => createAndSetupDio());
 }
@@ -42,5 +44,4 @@ Dio createAndSetupDio() {
     ),
   );
   return dio;
-
 }
