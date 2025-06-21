@@ -4,34 +4,32 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/helper/images.dart';
 import '../../../../../core/themes/styles.dart';
 
-class ComingWeatherGridView extends StatelessWidget {
-  const ComingWeatherGridView({super.key, required this.weatherModel});
+class DetailsWeatherGridView extends StatelessWidget {
+  const DetailsWeatherGridView({super.key, required this.weatherModel});
   final WeatherModel weatherModel;
 
   @override
   Widget build(BuildContext context) {
     final List weatherDetails = [
       {
-        {
-          "title": "Wind Speed",
-          "image": ImagesPath.air,
-          "value": "${weatherModel.windSpeed!.toInt()}Km/hr",
-        },
-        {
-          "title": "Precipitation",
-          "image": ImagesPath.rain,
-          "value": "${weatherModel.totalPercipitation!.toInt()}%",
-        },
-        {
-          "title": "Sunrise/Sunset",
-          "image": ImagesPath.sunrise,
-          "value": "${weatherModel.sunrise} / ${weatherModel.sunset}",
-        },
-        {
-          "title": "Humidity",
-          "image": ImagesPath.humidity,
-          "value": "${weatherModel.humidity}%",
-        },
+        "title": "Wind Speed",
+        "image": ImagesPath.air,
+        "value": "${weatherModel.windSpeed!.toInt()}Km/hr",
+      },
+      {
+        "title": "Precipitation",
+        "image": ImagesPath.rain,
+        "value": "${weatherModel.totalPercipitation!.toInt()}%",
+      },
+      {
+        "title": "Sunrise/Sunset",
+        "image": ImagesPath.sunrise,
+        "value": "${weatherModel.sunrise} / ${weatherModel.sunset}",
+      },
+      {
+        "title": "Humidity",
+        "image": ImagesPath.humidity,
+        "value": "${weatherModel.humidity}%",
       },
     ];
 
@@ -73,7 +71,6 @@ class ComingWeatherGridView extends StatelessWidget {
                           weatherDetails[index]["value"],
                           style: TextStyles.font14BlackRegular,
                         ),
-                        Text("12 Km/h", style: TextStyles.font14BlackRegular),
                       ],
                     ),
                   ),
