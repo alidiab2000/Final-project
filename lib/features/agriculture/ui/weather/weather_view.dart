@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:final_project/core/themes/colors.dart';
 import 'package:final_project/core/themes/styles.dart';
 import 'package:final_project/features/agriculture/logic/weather_cubit/weather_cubit.dart';
@@ -43,6 +45,7 @@ class _WeatherViewState extends State<WeatherView> {
                   return SingleChildScrollView(
                     child: Column(
                       children: [
+
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           child: Column(
@@ -75,18 +78,24 @@ class _WeatherViewState extends State<WeatherView> {
                                                 .avgTempcomingday1!
                                                 .toInt()
                                                 .toString(),
+
                                       ),
                                       ComingWeather(
                                         dayName: DateTime.now()
                                             .add(const Duration(days: 1))
                                             .toString()
                                             .substring(0, 10),
+
+                                        comingDay: 'Sat',
+                                      ),
+                                      ComingWeather(
                                         avgTemp:
                                             state
                                                 .weatherModel
                                                 .avgTempcomingday2!
                                                 .toInt()
                                                 .toString(),
+
                                       ),
                                       ComingWeather(
                                         dayName: DateTime.now()
@@ -99,6 +108,7 @@ class _WeatherViewState extends State<WeatherView> {
                                                 .avgTempcomingday3!
                                                 .toInt()
                                                 .toString(),
+                                        comingDay: 'Sun',
                                       ),
                                     ],
                                   ),
@@ -106,7 +116,9 @@ class _WeatherViewState extends State<WeatherView> {
                               ),
                               SizedBox(height: 20.h),
 
+
                               ComingWeatherGridView(
+                        
                                 weatherModel: state.weatherModel,
                               ),
                             ],

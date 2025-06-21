@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/helper/images.dart';
 import '../../../../../core/themes/styles.dart';
 
-class ComingWeatherGridView extends StatelessWidget {
-  const ComingWeatherGridView({super.key, required this.weatherModel});
+class DetailsWeatherGridView extends StatelessWidget {
+  const DetailsWeatherGridView({super.key, required this.weatherModel});
   final WeatherModel weatherModel;
 
   @override
@@ -71,7 +71,6 @@ class ComingWeatherGridView extends StatelessWidget {
                           weatherDetails[index]["value"],
                           style: TextStyles.font14BlackRegular,
                         ),
-                        Text("12 Km/h", style: TextStyles.font14BlackRegular),
                       ],
                     ),
                   ),

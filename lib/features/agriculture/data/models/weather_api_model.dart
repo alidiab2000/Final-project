@@ -33,26 +33,47 @@ class WeatherModel {
     required this.avgTempcomingday2,
     required this.avgTempcomingday3,
   });
+
   factory WeatherModel.fromjson(dynamic data) {
-    var jsondata = data['forecast']['forecastday'][0]['day'];
-    var sundata = data['forecast']['forecastday'][0]['astro'];
+    var forecastDays = data['forecast']['forecastday'] ?? [];
+
+    var jsondata = forecastDays.isNotEmpty ? forecastDays[0]['day'] : {};
+    var sundata = forecastDays.isNotEmpty ? forecastDays[0]['astro'] : {};
+    var hourData = forecastDays.isNotEmpty ? forecastDays[0]['hour'] : [];
+
+    int currentHour = DateTime.now().hour;
+    double safeFeelsLike =
+        (currentHour >= 0 && currentHour < hourData.length)
+            ? hourData[currentHour]['feelslike_c']?.toDouble() ?? 0.0
+            : 0.0;
+
+    double? getAvgTempForDay(int index) {
+      if (forecastDays.length > index) {
+        return forecastDays[index]['day']['avgtemp_c']?.toDouble() ?? 0.0;
+      } else {
+        return 0.0;
+      }
+    }
 
     return WeatherModel(
-      date: data['location']['loacltime'],
-      avgTemp: jsondata['avgtemp_c'],
-      maxTemp: jsondata['maxtemp_c'],
-      minTemp: jsondata['mintemp_c'],
-      weatherstate: jsondata['condition']['text'],
-      icon: jsondata['condition']['icon'],
-      humidity: jsondata['avghumidity'],
-      windSpeed: jsondata["maxwind_kph"],
-      totalPercipitation: jsondata['totalprecip_mm'],
-      sunrise: sundata['sunrise'],
-      sunset: sundata['sunset'],
-      feelsLike: data['forecast']['forecastday'][0]['hour'][0]['feelslike_c'],
-      avgTempcomingday1: data['forecast']['forecastday'][0]['day']['avgtemp_c'],
-      avgTempcomingday2: data['forecast']['forecastday'][1]['day']['avgtemp_c'],
-      avgTempcomingday3: data['forecast']['forecastday'][2]['day']['avgtemp_c'],
+
+      date: data['location']['localtime'] ?? '',
+      avgTemp: jsondata['avgtemp_c']?.toDouble() ?? 0.0,
+      maxTemp: jsondata['maxtemp_c']?.toDouble() ?? 0.0,
+      minTemp: jsondata['mintemp_c']?.toDouble() ?? 0.0,
+      weatherstate: jsondata['condition']?['text'] ?? '',
+      icon: jsondata['condition']?['icon'] ?? '',
+      humidity: jsondata['avghumidity']?.toInt() ?? 0,
+      windSpeed: jsondata["maxwind_kph"]?.toDouble() ?? 0.0,
+      totalPercipitation: jsondata['totalprecip_mm']?.toDouble() ?? 0.0,
+      sunrise: sundata['sunrise'] ?? '',
+      sunset: sundata['sunset'] ?? '',
+      feelsLike: safeFeelsLike,
+      avgTempcomingday1: getAvgTempForDay(1),
+      avgTempcomingday2: getAvgTempForDay(2),
+      avgTempcomingday3: getAvgTempForDay(3),
+      avgTempcomingday4: getAvgTempForDay(4),
+
     );
   }
 }
