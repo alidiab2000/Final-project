@@ -1,6 +1,7 @@
 import 'package:final_project/core/helper/extensions.dart';
 import 'package:final_project/core/router/router.dart';
 import 'package:final_project/core/themes/styles.dart';
+import 'package:final_project/core/widgets/functions/check_login_user.dart';
 import 'package:final_project/core/widgets/popups/snakbars.dart';
 import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
 import 'package:final_project/features/auth/ui/login/widgets/login_form.dart';
@@ -22,7 +23,7 @@ class LoginScreen extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(20.w),
             child: BlocListener<AuthCubit, AuthState>(
-              listener: (context, state) {
+              listener: (context, state) async {
                 if (state is LoginFailed) {
                   FullscreenLoader.stopLoading(context);
                   CustomSnakbars.errorSnackBar(context, title: state.error);
@@ -30,7 +31,16 @@ class LoginScreen extends StatelessWidget {
                 if (state is LoginSuccess) {
                   // Delayed navigation
                   FullscreenLoader.stopLoading(context);
-                  context.pushReplacementNamed(Routes.navigationBarMenu);
+                  CustomSnakbars.successSnackBar(
+                    context,
+                    title: "Login Successful",
+                    message: "Welcome back!",
+                  );
+                   String nextRoute = await checkIfLoggedInAndVerfiedUser();
+                   if(context.mounted){
+                    context.pushReplacementNamed(nextRoute);
+                   }
+                   
                 }
               },
               child: Column(

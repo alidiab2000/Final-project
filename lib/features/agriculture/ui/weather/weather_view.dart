@@ -45,17 +45,7 @@ class _WeatherViewState extends State<WeatherView> {
                   return SingleChildScrollView(
                     child: Column(
                       children: [
-                        Container(
-                          width: double.infinity,
-                          height: 60.h,
-                          decoration: BoxDecoration(
-                            color: ColorsManager.maingreen,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20.r),
-                              bottomRight: Radius.circular(20.r),
-                            ),
-                          ),
-                        ),
+
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           child: Column(
@@ -79,12 +69,23 @@ class _WeatherViewState extends State<WeatherView> {
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
                                       ComingWeather(
+                                        dayName: DateTime.now()
+                                            .toString()
+                                            .substring(0, 10),
                                         avgTemp:
                                             state
                                                 .weatherModel
                                                 .avgTempcomingday1!
                                                 .toInt()
                                                 .toString(),
+
+                                      ),
+                                      ComingWeather(
+                                        dayName: DateTime.now()
+                                            .add(const Duration(days: 1))
+                                            .toString()
+                                            .substring(0, 10),
+
                                         comingDay: 'Sat',
                                       ),
                                       ComingWeather(
@@ -92,6 +93,19 @@ class _WeatherViewState extends State<WeatherView> {
                                             state
                                                 .weatherModel
                                                 .avgTempcomingday2!
+                                                .toInt()
+                                                .toString(),
+
+                                      ),
+                                      ComingWeather(
+                                        dayName: DateTime.now()
+                                            .add(const Duration(days: 2))
+                                            .toString()
+                                            .substring(0, 10),
+                                        avgTemp:
+                                            state
+                                                .weatherModel
+                                                .avgTempcomingday3!
                                                 .toInt()
                                                 .toString(),
                                         comingDay: 'Sun',
@@ -102,7 +116,9 @@ class _WeatherViewState extends State<WeatherView> {
                               ),
                               SizedBox(height: 20.h),
 
-                              DetailsWeatherGridView(
+
+                              ComingWeatherGridView(
+                        
                                 weatherModel: state.weatherModel,
                               ),
                             ],

@@ -32,7 +32,6 @@ class WeatherModel {
     required this.avgTempcomingday1,
     required this.avgTempcomingday2,
     required this.avgTempcomingday3,
-    required this.avgTempcomingday4,
   });
 
   factory WeatherModel.fromjson(dynamic data) {
@@ -57,6 +56,7 @@ class WeatherModel {
     }
 
     return WeatherModel(
+
       date: data['location']['localtime'] ?? '',
       avgTemp: jsondata['avgtemp_c']?.toDouble() ?? 0.0,
       maxTemp: jsondata['maxtemp_c']?.toDouble() ?? 0.0,
@@ -73,6 +73,7 @@ class WeatherModel {
       avgTempcomingday2: getAvgTempForDay(2),
       avgTempcomingday3: getAvgTempForDay(3),
       avgTempcomingday4: getAvgTempForDay(4),
+
     );
   }
 }

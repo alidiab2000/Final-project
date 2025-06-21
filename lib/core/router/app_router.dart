@@ -3,6 +3,7 @@ import 'package:final_project/features/agriculture/logic/recommendation_cubit/re
 import 'package:final_project/features/agriculture/ui/crops/crop_info_screen.dart';
 import 'package:final_project/features/agriculture/logic/weather_cubit/weather_cubit.dart';
 import 'package:final_project/features/agriculture/ui/recommendation_screen/recommendation_screen.dart';
+import 'package:final_project/features/agriculture/ui/resuelt/resuelt_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
@@ -10,6 +11,7 @@ import 'package:final_project/features/auth/ui/register/register_view.dart';
 import 'package:final_project/features/auth/ui/verify/verify_view.dart';
 import 'package:final_project/features/agriculture/ui/navigationbar/navigationbar_menu_view.dart';
 import 'package:final_project/features/auth/ui/onboarding/ui/onboarding_view.dart';
+import '../../features/agriculture/data/models/crops_recommendations_response/crops_recommendations_response.dart';
 import '../../features/agriculture/logic/navigationbar_cubit/naviagtionbar_cubit.dart';
 import '../../features/agriculture/ui/weather/weather_view.dart';
 import '../../features/auth/ui/forget_password/forget_pass_view.dart';
@@ -100,6 +102,11 @@ class AppRouter {
                 create: (context) => getIt<RecommendationsCubit>(),
                 child: RecommendationScreen(),
               ),
+        );
+      case Routes.resultView:
+        return MaterialPageRoute(
+          builder:
+              (_) => ResueltView(result: args as CropsRecommendationsResponse),
         );
       default:
         return MaterialPageRoute(

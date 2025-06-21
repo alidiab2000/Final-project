@@ -11,4 +11,5 @@ class Routes {
   static const String cropInfo = '/cropInfo';
   static const String location = '/location';
   static const String recommendationScreen = '/recommendationScreen';
+  static const String resultView = '/resultView';
 }
