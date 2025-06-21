@@ -30,7 +30,7 @@ class WeaterCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    weatherModel.avgTemp.toString(),
+                    weatherModel.avgTemp!.toInt().toString(),
                     style: TextStyle(
                       fontSize: 50,
                       fontWeight: FontWeight.bold,

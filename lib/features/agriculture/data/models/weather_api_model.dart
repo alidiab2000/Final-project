@@ -32,7 +32,6 @@ class WeatherModel {
     required this.avgTempcomingday1,
     required this.avgTempcomingday2,
     required this.avgTempcomingday3,
-    required this.avgTempcomingday4,
   });
   factory WeatherModel.fromjson(dynamic data) {
     var jsondata = data['forecast']['forecastday'][0]['day'];
@@ -51,10 +50,9 @@ class WeatherModel {
       sunrise: sundata['sunrise'],
       sunset: sundata['sunset'],
       feelsLike: data['forecast']['forecastday'][0]['hour'][0]['feelslike_c'],
-      avgTempcomingday1: data['forecast']['forecastday'][1]['day']['avgtemp_c'],
-      avgTempcomingday2: data['forecast']['forecastday'][2]['day']['avgtemp_c'],
-      avgTempcomingday3: data['forecast']['forecastday'][3]['day']['avgtemp_c'],
-      avgTempcomingday4: data['forecast']['forecastday'][4]['day']['avgtemp_c'],
+      avgTempcomingday1: data['forecast']['forecastday'][0]['day']['avgtemp_c'],
+      avgTempcomingday2: data['forecast']['forecastday'][1]['day']['avgtemp_c'],
+      avgTempcomingday3: data['forecast']['forecastday'][2]['day']['avgtemp_c'],
     );
   }
 }

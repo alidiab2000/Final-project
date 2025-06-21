@@ -1,8 +1,12 @@
+import 'package:final_project/core/helper/extensions.dart';
 import 'package:final_project/core/widgets/popups/snakbars.dart';
 import 'package:final_project/features/agriculture/logic/recommendation_cubit/recommendations_cubit.dart';
 import 'package:final_project/features/agriculture/ui/recommendation_screen/field_input_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/router/router.dart';
+import 'crop_selected _field.dart';
+import 'rainfall_yes_or_no.dart';
 
 class RecommendationScreen extends StatelessWidget {
   const RecommendationScreen({super.key});
@@ -23,7 +27,10 @@ class RecommendationScreen extends StatelessWidget {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
+                vertical: 20,
+              ),
               child: BlocConsumer<RecommendationsCubit, RecommendationsState>(
                 listener: (context, state) {
                   if (state is RecommendationsLoaded) {
@@ -33,13 +40,17 @@ class RecommendationScreen extends StatelessWidget {
                       title: "Success",
                       message: "Sent successfully",
                     );
+                    context.pushNamed(
+                      Routes.resultView,
+                      arguments: state.recommendations,
+                    );
                   } else if (state is RecommendationsError) {
-                    debugPrint("Error: ${state.message}");
                     CustomSnakbars.errorSnackBar(
                       context,
                       title: "Error",
-                      message: "Failed",
+                      message: state.message,
                     );
+                    debugPrint("Error: ${state.message}");
                   }
                 },
                 builder: (context, state) {
@@ -55,6 +66,8 @@ class RecommendationScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            CropSelectedField(cubit: cubit),
+                            RainfallYesNo(cubit: cubit),
                             FieldInputSection(
                               label: "PH",
                               controller: cubit.phController,
@@ -64,7 +77,7 @@ class RecommendationScreen extends StatelessWidget {
                               controller: cubit.humidityController,
                             ),
                             FieldInputSection(
-                              label: "Temperature",
+                              label: "Temp",
                               controller: cubit.tempController,
                             ),
                             FieldInputSection(
@@ -78,10 +91,6 @@ class RecommendationScreen extends StatelessWidget {
                             FieldInputSection(
                               label: "Potassium",
                               controller: cubit.kController,
-                            ),
-                            FieldInputSection(
-                              label: "Rainfall",
-                              controller: cubit.rainfallController,
                             ),
                           ],
                         ),

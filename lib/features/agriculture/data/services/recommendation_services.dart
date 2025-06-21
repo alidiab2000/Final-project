@@ -13,7 +13,7 @@ class RecommendationServices {
     try {
       debugPrint('Sending request: ${request.toJson()}');
       final response = await dio.post(
-        'http://192.168.1.6:8000/api/recommendation',
+        'http://192.168.1.4:8000/api/recommendation',
         data: request.toJson(),
       );
 

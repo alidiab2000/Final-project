@@ -12,26 +12,24 @@ class ComingWeatherGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     final List weatherDetails = [
       {
-        {
-          "title": "Wind Speed",
-          "image": ImagesPath.air,
-          "value": "${weatherModel.windSpeed!.toInt()}Km/hr",
-        },
-        {
-          "title": "Precipitation",
-          "image": ImagesPath.rain,
-          "value": "${weatherModel.totalPercipitation!.toInt()}%",
-        },
-        {
-          "title": "Sunrise/Sunset",
-          "image": ImagesPath.sunrise,
-          "value": "${weatherModel.sunrise} / ${weatherModel.sunset}",
-        },
-        {
-          "title": "Humidity",
-          "image": ImagesPath.humidity,
-          "value": "${weatherModel.humidity}%",
-        },
+        "title": "Wind Speed",
+        "image": ImagesPath.air,
+        "value": "${weatherModel.windSpeed!.toInt()}Km/hr",
+      },
+      {
+        "title": "Precipitation",
+        "image": ImagesPath.rain,
+        "value": "${weatherModel.totalPercipitation!.toInt()}%",
+      },
+      {
+        "title": "Sunrise/Sunset",
+        "image": ImagesPath.sunrise,
+        "value": "${weatherModel.sunrise} / ${weatherModel.sunset}",
+      },
+      {
+        "title": "Humidity",
+        "image": ImagesPath.humidity,
+        "value": "${weatherModel.humidity}%",
       },
     ];
 

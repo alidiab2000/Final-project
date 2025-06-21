@@ -28,19 +28,24 @@ class FieldInputSection extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 100,
+            width: 140,
 
             child: TextFormField(
               controller: controller,
 
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter $label';
+                  return 'Plz enter $label';
                 }
                 return null;
               },
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+              ),
               style: const TextStyle(fontSize: 16, color: Colors.black),
               textAlign: TextAlign.center,
             ),

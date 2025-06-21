@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bloc/bloc.dart';
 import 'package:final_project/features/agriculture/data/models/crops_recommendations_response/crops_recommendations_response.dart';
 import 'package:flutter/widgets.dart';
@@ -15,11 +14,11 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
   final TextEditingController pController = TextEditingController();
   final TextEditingController kController = TextEditingController();
   final TextEditingController tempController = TextEditingController();
-  final TextEditingController rainfallController = TextEditingController();
   final TextEditingController humidityController = TextEditingController();
-
   final RecommendationServices recommendationServices;
   final formKey = GlobalKey<FormState>();
+  String? selectedCrop;
+  bool? rainfall;
   bool isLoading = false;
   void disposeControllers() {
     phController.dispose();
@@ -27,7 +26,7 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
     pController.dispose();
     kController.dispose();
     tempController.dispose();
-    rainfallController.dispose();
+
     humidityController.dispose();
   }
 
@@ -40,7 +39,7 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
             await recommendationServices.getRecommendations(
               request: CropsRecommendationsRequest(
                 area: 1000,
-                crop: "rice",
+                crop: selectedCrop ?? "Rice",
                 weeklyWeatherData: [
                   WeeklyWeatherDatum(
                     date: DateTime.now().toString().substring(0, 10),
@@ -49,15 +48,13 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
                     p: double.parse(pController.text),
                     k: double.parse(kController.text),
                     temperature: double.parse(tempController.text),
-                    rainfallMm:
-                        int.parse(rainfallController.text) == 1 ? true : false,
+                    rainfallMm: rainfall ?? false,
                     humidity: int.parse(humidityController.text),
                   ),
                 ],
               ),
             );
         emit(RecommendationsLoaded(recommendations));
-        isLoading = false;
       } catch (e) {
         emit(RecommendationsError(e.toString()));
       } finally {

@@ -18,6 +18,7 @@ class AuthRepo {
         email: email,
         password: password,
       );
+      
     } on FirebaseAuthException catch (e) {
       debugPrint(e.toString());
       throw FirebaseAuthExceptions(e.code).message;

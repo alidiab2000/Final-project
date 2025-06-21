@@ -15,7 +15,6 @@ class CustomSnakbars {
       padding: EdgeInsets.all(8),
 
       content: SizedBox(
-        height: 40,
         child: Row(
           children: [
             Icon(icon, color: Colors.white),
