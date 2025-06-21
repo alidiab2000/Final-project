@@ -72,7 +72,7 @@ class WeatherModel {
       avgTempcomingday1: getAvgTempForDay(1),
       avgTempcomingday2: getAvgTempForDay(2),
       avgTempcomingday3: getAvgTempForDay(3),
-      avgTempcomingday4: getAvgTempForDay(4),
+     
 
     );
   }
