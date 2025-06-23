@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:final_project/core/themes/colors.dart';
 import 'package:final_project/core/themes/styles.dart';
 import 'package:final_project/features/agriculture/logic/weather_cubit/weather_cubit.dart';
@@ -99,23 +97,11 @@ class _WeatherViewState extends State<WeatherView> {
                                         avgTemp:
                                             state
                                                 .weatherModel
-                                                .avgTempcomingday2!
-                                                .toInt()
-                                                .toString(),
-                                      ),
-                                      ComingWeather(
-                                        dayName: DateTime.now()
-                                            .add(const Duration(days: 2))
-                                            .toString()
-                                            .substring(0, 10),
-                                        avgTemp:
-                                            state
-                                                .weatherModel
                                                 .avgTempcomingday3!
                                                 .toInt()
                                                 .toString(),
-                                      
                                       ),
+                                      
                                     ],
                                   ),
                                 ],

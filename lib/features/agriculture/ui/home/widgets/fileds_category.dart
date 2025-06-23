@@ -28,12 +28,12 @@ class FiledsCategory extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               FieldCropCategory(
-                fieldName: "Rice",
-                fieldDetails: "Rice humidity: 70%",
+                fieldName: "Agricultural",
+                fieldDetails: "Rice",
               ),
               FieldCropCategory(
-                fieldName: "Cotton",
-                fieldDetails: "Cotton humidity: 60%",
+                fieldName: "Agricultural",
+                fieldDetails: "Cotton",
               ),
             ],
           ),
@@ -78,8 +78,9 @@ class FieldCropCategory extends StatelessWidget {
           ),
           SizedBox(height: 5.h),
           Container(
+            padding: const EdgeInsets.all(8),
             width: 120.w,
-            height: 50.h,
+
             decoration: BoxDecoration(
               color: ColorsManager.maingreen.withValues(alpha: .5),
               borderRadius: BorderRadius.circular(10),

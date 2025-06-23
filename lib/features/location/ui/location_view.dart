@@ -1,5 +1,8 @@
+import 'package:final_project/core/helper/extensions.dart';
+import 'package:final_project/core/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../logic/location_cubit.dart';
 import '../logic/location_state.dart';
 
@@ -43,6 +46,7 @@ class LocationView extends StatelessWidget {
                   _buildLocationInfo(state),
                   SizedBox(height: 30),
                   _buildActionButtons(context, state),
+                  SizedBox(height: 20),
                 ],
               ),
             ),
@@ -315,7 +319,32 @@ class LocationView extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(height: 12),
+        _buildStartButton(context, state as LocationLoaded),
       ],
+    );
+  }
+
+  Widget _buildStartButton(BuildContext context, LocationLoaded state) {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: () async {
+          final SharedPreferences prefs = await SharedPreferences.getInstance();
+          Future.wait<bool>([
+            prefs.setDouble("latitude", state.locationData.latitude),
+            prefs.setDouble("longitude", state.locationData.longitude),
+            prefs.setString(
+              "displayAddress",
+              state.locationData.displayAddress,
+            ),
+          ]);
+          if (context.mounted) {
+            context.pushReplacementNamed(Routes.navigationBarMenu);
+          }
+        },
+        child: Text('Start'),
+      ),
     );
   }
 }

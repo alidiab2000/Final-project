@@ -10,15 +10,17 @@ class WeatherService {
   WeatherService(this.dio);
 
   Future<WeatherModel> getWeather({
-    required String cityname,
+    required double latitude,
+    required double longitude,
     int days = 5,
   }) async {
     try {
+      
       final response = await dio.get(
         '$baseUrl/forecast.json',
         queryParameters: {
           'key': apiKey,
-          'q': cityname,
+          'q': '$latitude,$longitude',
           'days': days,
         },
       );

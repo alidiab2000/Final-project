@@ -42,8 +42,8 @@ Future<String> checkIfLoggedInAndVerfiedUser() async {
 Future<String> checkIfLocationGiven() async {
   final prefs = await SharedPreferences.getInstance();
   const String isLocationGivenKey = "isLocationGiven";
-  final isLocationGiven = prefs.getBool(isLocationGivenKey) ?? true;
-
+  final isLocationGiven = prefs.containsKey(isLocationGivenKey) ;
+  debugPrint("Is location given: $isLocationGiven");
   if (isLocationGiven) {
     return Routes.navigationBarMenu;
   } else {

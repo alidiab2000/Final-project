@@ -26,7 +26,6 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
     pController.dispose();
     kController.dispose();
     tempController.dispose();
-
     humidityController.dispose();
   }
 
@@ -48,7 +47,7 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
                     p: double.parse(pController.text),
                     k: double.parse(kController.text),
                     temperature: double.parse(tempController.text),
-                    rainfallMm: rainfall ?? false,
+                    rainfallMm: rainfall,
                     humidity: int.parse(humidityController.text),
                   ),
                 ],

@@ -49,6 +49,7 @@ dependencies:
   logger: ^2.4.0
   lottie: ^3.3.1
   shared_preferences: ^2.5.2
+  table_calendar: ^3.2.0
   window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding
@@ -61,7 +62,6 @@ dev_dependencies:
     sdk: flutter
   # Code generator for json serialization
   json_serializable: ^6.8.0
-
 
 flutter:
   uses-material-design: true

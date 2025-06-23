@@ -18,6 +18,15 @@ class EmaarElArd extends StatelessWidget {
         theme: ThemeData(
           primaryColor: ColorsManager.maingreen,
           scaffoldBackgroundColor: Colors.white,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: ColorsManager.maingreen,
+            elevation: 0,
+            titleTextStyle: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         initialRoute: Routes.navigationBarMenu, //appRouter.initialRoute,
         onGenerateRoute: appRouter.onGenerateRoute,

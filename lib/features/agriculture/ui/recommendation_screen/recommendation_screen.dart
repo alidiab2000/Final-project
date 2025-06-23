@@ -1,11 +1,13 @@
 import 'package:final_project/core/helper/extensions.dart';
+import 'package:final_project/core/themes/colors.dart';
 import 'package:final_project/core/widgets/popups/snakbars.dart';
 import 'package:final_project/features/agriculture/logic/recommendation_cubit/recommendations_cubit.dart';
 import 'package:final_project/features/agriculture/ui/recommendation_screen/field_input_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/router/router.dart';
-import 'crop_selected _field.dart';
+import '../../../../core/themes/styles.dart';
+import 'crop_selected_field.dart';
 import 'rainfall_yes_or_no.dart';
 
 class RecommendationScreen extends StatelessWidget {
@@ -16,7 +18,14 @@ class RecommendationScreen extends StatelessWidget {
     final cubit = context.read<RecommendationsCubit>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Recommendation'),
+        title: const Text(
+          'Water Recommendation',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
         backgroundColor: const Color(0xff1E640A),
         centerTitle: true,
       ),
@@ -55,6 +64,7 @@ class RecommendationScreen extends StatelessWidget {
                 },
                 builder: (context, state) {
                   return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         width: double.infinity,
@@ -66,6 +76,14 @@ class RecommendationScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text(
+                              "Enter the following details:",
+                              textAlign: TextAlign.start,
+                              style: TextStyles.font20BlackBold.copyWith(
+                                color: ColorsManager.gray,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
                             CropSelectedField(cubit: cubit),
                             RainfallYesNo(cubit: cubit),
                             FieldInputSection(

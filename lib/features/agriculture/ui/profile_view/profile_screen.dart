@@ -33,20 +33,6 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 3,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.grass), label: "Crops"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month),
-            label: "Calendar",
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        ],
-        selectedItemColor: Color(0xff1E640A),
-        unselectedItemColor: Colors.grey,
-      ),
       body: SafeArea(
         child: Column(
           children: [

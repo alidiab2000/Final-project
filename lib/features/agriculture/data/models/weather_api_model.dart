@@ -1,5 +1,6 @@
 class WeatherModel {
   String? date;
+  int? currentTemp;
   double? avgTemp;
   double? maxTemp;
   double? minTemp;
@@ -18,6 +19,7 @@ class WeatherModel {
 
   WeatherModel({
     required this.date,
+    required this.currentTemp,
     required this.avgTemp,
     required this.maxTemp,
     required this.minTemp,
@@ -35,9 +37,10 @@ class WeatherModel {
   });
 
   factory WeatherModel.fromjson(dynamic data) {
-    var forecastDays = data['forecast']['forecastday'] ?? [];
+    List<dynamic> forecastDays = data['forecast']['forecastday'] ?? [];
 
-    var jsondata = forecastDays.isNotEmpty ? forecastDays[0]['day'] : {};
+    Map<String, dynamic> jsondata =
+        forecastDays.isNotEmpty ? forecastDays[0]['day'] : {};
     var sundata = forecastDays.isNotEmpty ? forecastDays[0]['astro'] : {};
     var hourData = forecastDays.isNotEmpty ? forecastDays[0]['hour'] : [];
 
@@ -49,14 +52,14 @@ class WeatherModel {
 
     double? getAvgTempForDay(int index) {
       if (forecastDays.length > index) {
-        return forecastDays[index]['day']['avgtemp_c']?.toDouble() ?? 0.0;
+        return forecastDays[index]['day']['avgtemp_c']?.toDouble() ;
       } else {
         return 0.0;
       }
     }
 
     return WeatherModel(
-
+      currentTemp: data['current']['temp_c']?.toInt() ?? 0,
       date: data['location']['localtime'] ?? '',
       avgTemp: jsondata['avgtemp_c']?.toDouble() ?? 0.0,
       maxTemp: jsondata['maxtemp_c']?.toDouble() ?? 0.0,
@@ -69,11 +72,9 @@ class WeatherModel {
       sunrise: sundata['sunrise'] ?? '',
       sunset: sundata['sunset'] ?? '',
       feelsLike: safeFeelsLike,
-      avgTempcomingday1: getAvgTempForDay(1),
-      avgTempcomingday2: getAvgTempForDay(2),
-      avgTempcomingday3: getAvgTempForDay(3),
-     
-
+      avgTempcomingday1: getAvgTempForDay(0),
+      avgTempcomingday2: getAvgTempForDay(1),
+      avgTempcomingday3: getAvgTempForDay(2),
     );
   }
 }
