@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:final_project/features/agriculture/data/services/recommendation_services.dart';
 import 'package:final_project/features/agriculture/data/services/weather_services.dart';
 import 'package:final_project/features/agriculture/logic/weather_cubit/weather_cubit.dart';
+import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
 import 'package:final_project/features/location/data/location_service.dart';
 import 'package:final_project/features/location/logic/location_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -9,6 +10,7 @@ import '../../features/agriculture/logic/recommendation_cubit/recommendations_cu
 
 final getIt = GetIt.instance;
 void initGetIt() {
+  getIt.registerLazySingleton<AuthCubit>(() => AuthCubit());
   // Location
   getIt.registerFactory<LocationCubit>(() => LocationCubit(getIt()));
   getIt.registerLazySingleton<LocationService>(() => LocationService());

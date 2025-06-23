@@ -12,8 +12,9 @@ class ScheduleView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Schedule'),
         centerTitle: true,
+        automaticallyImplyLeading: false,
         backgroundColor:
-            ColorsManager.maingreen, // You can change the color as needed
+            ColorsManager.maingreen, // You can change the color as neededط
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

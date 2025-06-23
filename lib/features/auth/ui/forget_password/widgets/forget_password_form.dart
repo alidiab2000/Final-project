@@ -16,10 +16,22 @@ class ForgetPasswordForm extends StatelessWidget {
       key: context.read<AuthCubit>().forgetPasswordFormKey,
       child: Column(
         children: [
-          TitleAndText(
-            title: 'Forget Password',
-            text:
-                "At our app, we take the security of your information seriously.",
+          Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.arrow_back, color: Colors.black),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              Flexible(
+                child: TitleAndText(
+                  title: 'Forget Password',
+                  text:
+                      "At our app, we take the security of your information seriously.",
+                ),
+              ),
+            ],
           ),
           SizedBox(height: 20),
           CustomTextField(

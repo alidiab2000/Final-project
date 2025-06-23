@@ -51,12 +51,7 @@ class CropsScreen extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 50.h,
         automaticallyImplyLeading: false,
-        title: Center(
-          child: Text(
-            "Crops",
-            style: TextStyles.font12BlackBold.copyWith(fontSize: 16.sp),
-          ),
-        ),
+        title: Center(child: Text("Crops")),
       ),
       body: SafeArea(
         child: Padding(

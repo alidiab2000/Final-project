@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:final_project/core/widgets/popups/snakbars.dart';
 import 'package:final_project/core/widgets/screens/loading_screen.dart';
-import 'package:final_project/features/auth/data/auth_repo.dart';
+import 'package:final_project/features/auth/data/model/user_model.dart';
+import 'package:final_project/features/auth/data/repo/auth_repo.dart';
+import 'package:final_project/features/auth/data/repo/user_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 part 'auth_state.dart';
@@ -14,19 +16,20 @@ class AuthCubit extends Cubit<AuthState> {
   final forgetPasswordFormKey = GlobalKey<FormState>();
   final authRepo = AuthRepo();
   final authUser = FirebaseAuth.instance.currentUser;
+  final UserRepository userRepo = UserRepository();
+
   sendPasswordResetEmail(BuildContext context) async {
     try {
       emit(ForgetPasswordLoading());
       FullscreenLoader.openLoadingDialog('Check Your Email', context);
       if (!forgetPasswordFormKey.currentState!.validate()) {
-        await Future.delayed(const Duration(seconds: 4));
-        debugPrint('Form is not valid');
+        FullscreenLoader.stopLoading(context);
         return;
       }
       await authRepo.sendPasswordResetEmail(
         email: forgetPasswordemailController.text.trim(),
       );
-      await Future.delayed(const Duration(seconds: 4));
+
       emit(ForgetPasswordSuccess());
     } catch (e) {
       emit(ForgetPasswordFailed(e.toString()));
@@ -73,6 +76,13 @@ class AuthCubit extends Cubit<AuthState> {
         password: registerPasswordController.text.trim(),
       );
       debugPrint("User Credential$userCredential");
+        final newUser = UserModel(
+        userName: registerNameController.text.trim(),
+        email: registerEmailController.text.trim(),
+        profilePicture: "",
+        id: userCredential.user!.uid,
+      );
+      await userRepo.saveUserData(user: newUser);
       emit(RegisterSuccess());
       await Future.delayed(const Duration(seconds: 4));
     } catch (e) {
