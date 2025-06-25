@@ -12,6 +12,7 @@ import '../model/user_model.dart';
 
 class UserRepository {
   // Database
+  
   final _db = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
   // Function To Add User Data

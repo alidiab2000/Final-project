@@ -25,6 +25,14 @@ class ImagesPath {
   static const String wheatImage = "assets/images/wheatimage.jpg";
   static const String cropsImage = "assets/images/crops.jpg";
 
+  static const String watermelonImage = "assets/images/watermelonimage.jpg";
+  static const String maizeImage = "assets/images/maizeimage.jpg";
+  static const String bananaImage = "assets/images/bananaimage.jpg";
+
+  static const String watermelonVector = "assets/images/watermelonvector.png";
+  static const String maizeVector = "assets/images/maizevector.png";
+  static const String bananaVector = "assets/images/bananavector.png";
+
   static const String curveImage = 'assets/images/curve.png';
   static const String riceVector = 'assets/images/rice_vector.png';
   static const String wheatVector = 'assets/images/wheat_vector.png';
