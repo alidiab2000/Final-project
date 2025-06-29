@@ -10,6 +10,7 @@ final class RecommendationsLoaded extends RecommendationsState {
 
   RecommendationsLoaded(this.recommendations);
 }
+final class RecommendationsSaved extends RecommendationsState{}
 final class RecommendationsError extends RecommendationsState {
   final String message;
 

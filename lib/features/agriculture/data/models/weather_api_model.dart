@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class WeatherModel {
   String? date;
   int? currentTemp;
@@ -16,7 +17,7 @@ class WeatherModel {
   double? avgTempcomingday2;
   double? avgTempcomingday3;
   double? avgTempcomingday4;
-
+  int? rainFall;
   WeatherModel({
     required this.date,
     required this.currentTemp,
@@ -34,8 +35,28 @@ class WeatherModel {
     required this.avgTempcomingday1,
     required this.avgTempcomingday2,
     required this.avgTempcomingday3,
+    this.avgTempcomingday4,
+    required this.rainFall,
   });
 
+  WeatherModel.empty()
+    : date = '',
+      currentTemp = 0,
+      avgTemp = 0.0,
+      maxTemp = 0.0,
+      minTemp = 0.0,
+      weatherstate = '',
+      icon = '',
+      humidity = 0,
+      windSpeed = 0.0,
+      totalPercipitation = 0.0,
+      sunrise = '',
+      sunset = '',
+      feelsLike = 0.0,
+      rainFall = 0,
+      avgTempcomingday1 = 0.0,
+      avgTempcomingday2 = 0.0,
+      avgTempcomingday3 = 0.0;
   factory WeatherModel.fromjson(dynamic data) {
     List<dynamic> forecastDays = data['forecast']['forecastday'] ?? [];
 
@@ -52,13 +73,14 @@ class WeatherModel {
 
     double? getAvgTempForDay(int index) {
       if (forecastDays.length > index) {
-        return forecastDays[index]['day']['avgtemp_c']?.toDouble() ;
+        return forecastDays[index]['day']['avgtemp_c']?.toDouble();
       } else {
         return 0.0;
       }
     }
 
     return WeatherModel(
+      rainFall: jsondata["daily_will_it_rain"],
       currentTemp: data['current']['temp_c']?.toInt() ?? 0,
       date: data['location']['localtime'] ?? '',
       avgTemp: jsondata['avgtemp_c']?.toDouble() ?? 0.0,

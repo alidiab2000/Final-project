@@ -38,9 +38,9 @@ class CropsScreen extends StatelessWidget {
       "image": ImagesPath.bananaVector,
 
       "description":
-          "Banana trees prefer direct sunlight for at least 6 hours per day The soil should be fertile and well-drained Bananas can be grown most of the year, but planting is best in spring or fall Bananas require regular watering, especially during dry periods",  
-      
-      "waterAmount": "4-6 Mm ",  
+          "Banana trees prefer direct sunlight for at least 6 hours per day The soil should be fertile and well-drained Bananas can be grown most of the year, but planting is best in spring or fall Bananas require regular watering, especially during dry periods",
+
+      "waterAmount": "4-6 Mm ",
       "temperature": "25° - 35°C",
       "soilType": "Loamy soil",
     },
@@ -49,7 +49,8 @@ class CropsScreen extends StatelessWidget {
       "image_panal": ImagesPath.maizeImage,
       "image": ImagesPath.maizeVector,
 
-      "description":"Corn is planted in the summer season from the beginning of April until the end of June, and the beginning of May is preferred to obtain the best crop. Corn needs nitrogen and potassium fertilization throughout the growth period.",
+      "description":
+          "Corn is planted in the summer season from the beginning of April until the end of June, and the beginning of May is preferred to obtain the best crop. Corn needs nitrogen and potassium fertilization throughout the growth period.",
 
       "waterAmount": "5-7 Mm ",
       "temperature": "21° - 30°C",
@@ -60,9 +61,10 @@ class CropsScreen extends StatelessWidget {
       "image_panal": ImagesPath.watermelonImage,
       "image": ImagesPath.watermelonVector,
 
-      "description":"Watermelons grow best in 25–35°C with well-drained sandy loam soil (pH 6.0–6.5) Regular watering is key during flowering and fruiting. Use NPK fertilizer like 10-10-10 or 8-24-24 Plant 1.5–2 m apart Needs 6–8 hours of full sun daily.",
+      "description":
+          "Watermelons grow best in 25–35°C with well-drained sandy loam soil (pH 6.0–6.5) Regular watering is key during flowering and fruiting. Use NPK fertilizer like 10-10-10 or 8-24-24 Plant 1.5–2 m apart Needs 6–8 hours of full sun daily.",
 
-      "waterAmount": "3-5 Mm " ,
+      "waterAmount": "3-5 Mm ",
       "temperature": "25° - 35°C",
       "soilType": "Sandy loam soil",
     },
@@ -83,7 +85,6 @@ class CropsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 50.h,
         automaticallyImplyLeading: false,
         title: Center(child: Text("Crops")),
       ),

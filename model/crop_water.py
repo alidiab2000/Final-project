@@ -54,6 +54,7 @@ def recommendation():
             total_water_usage = water_usage_per_sqm * area
             recommendations.append({
                 'date': week['date'],
+                'cropName':crop,
                 'temperature': week['temperature'],
                 'area': area,
                 'water_usage_per_sqm': f'{water_usage_per_sqm:.2f} liters',

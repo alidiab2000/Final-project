@@ -6,6 +6,7 @@ part 'recommendation.g.dart';
 @JsonSerializable()
 class Recommendation {
   int area;
+  String cropName;
   String date;
   double temperature;
   @JsonKey(name: 'total_water_usage')
@@ -15,6 +16,7 @@ class Recommendation {
 
   Recommendation({
     required this.area,
+    required this.cropName,
     required this.date,
     required this.temperature,
     required this.totalWaterUsage,

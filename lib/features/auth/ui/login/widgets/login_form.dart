@@ -18,6 +18,8 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loginBloc = context.read<AuthCubit>();
+    loginBloc.loginEmailController.text = "alidiab8899@gmail.com";
+    loginBloc.loginPasswordController.text = "Alidiab2003#";
     return Form(
       key: loginBloc.loginFormKey,
       child: Column(

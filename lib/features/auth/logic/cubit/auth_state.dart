@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'authcubit.dart';
 
 class AuthState {}
@@ -24,7 +25,9 @@ class ForgetPasswordFailed extends AuthState {
 
 class LoginLoading extends AuthState {}
 
-class LoginSuccess extends AuthState {}
+class LoginSuccess extends AuthState {
+
+}
 
 class LoginFailed extends AuthState {
   final String error;
@@ -48,3 +51,12 @@ class EmailVerficationFailed extends AuthState {
   final String error;
   EmailVerficationFailed(this.error);
 }
+class SignOutLoading extends AuthState {}
+
+class SignOutSuccess extends AuthState {}
+
+class SignOutFailed extends AuthState {
+  final String error;
+  SignOutFailed(this.error);
+}
+

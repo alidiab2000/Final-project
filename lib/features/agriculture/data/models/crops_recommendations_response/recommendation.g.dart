@@ -9,6 +9,7 @@ part of 'recommendation.dart';
 Recommendation _$RecommendationFromJson(Map<String, dynamic> json) =>
     Recommendation(
       area: (json['area'] as num).toInt(),
+      cropName: json['cropName']as String,
       date: json['date'] as String,
       temperature: (json['temperature'] as num).toDouble(),
       totalWaterUsage: json['total_water_usage'] as String,
@@ -19,6 +20,7 @@ Map<String, dynamic> _$RecommendationToJson(Recommendation instance) =>
     <String, dynamic>{
       'area': instance.area,
       'date': instance.date,
+      'cropName' : instance.cropName,
       'temperature': instance.temperature,
       'total_water_usage': instance.totalWaterUsage,
       'water_usage_per_sqm': instance.waterUsagePerSqm,

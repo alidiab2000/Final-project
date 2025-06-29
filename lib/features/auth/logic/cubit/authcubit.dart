@@ -41,7 +41,7 @@ class AuthCubit extends Cubit<AuthState> {
   final loginEmailController = TextEditingController();
   final loginPasswordController = TextEditingController();
   final loginPasswordVisible = true;
-  Future<void> loginWithEmailAndPassword(context) async {
+  Future<void> loginWithEmailAndPassword(BuildContext context) async {
     try {
       if (!loginFormKey.currentState!.validate()) return;
       emit(LoginLoading());
@@ -51,7 +51,6 @@ class AuthCubit extends Cubit<AuthState> {
         password: loginPasswordController.text.trim(),
       );
       debugPrint("User Credential$userCredential");
-      await Future.delayed(const Duration(seconds: 4));
       emit(LoginSuccess());
     } catch (e) {
       emit(LoginFailed(e.toString()));
@@ -76,7 +75,7 @@ class AuthCubit extends Cubit<AuthState> {
         password: registerPasswordController.text.trim(),
       );
       debugPrint("User Credential$userCredential");
-        final newUser = UserModel(
+      final newUser = UserModel(
         userName: registerNameController.text.trim(),
         email: registerEmailController.text.trim(),
         profilePicture: "",
@@ -115,6 +114,14 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> googleSignIn(BuildContext context) async {
     try {
       final userCredential = await authRepo.googleSignIn();
+      final userData = userCredential.user!;
+      final user = UserModel(
+        email: userData.email!,
+        userName: userData.displayName!,
+        profilePicture: "",
+        id: userData.uid,
+      );
+      userRepo.saveUserData(user: user);
       if (context.mounted) {
         CustomSnakbars.successSnackBar(
           context,
@@ -136,6 +143,31 @@ class AuthCubit extends Cubit<AuthState> {
       }
 
       emit(GoogleSignInFailed(e.toString()));
+    }
+  }
+
+  Future<void> signOut(BuildContext context) async {
+    try {
+      emit(SignOutLoading());
+      await authRepo.signOut();
+      if (context.mounted) {
+        CustomSnakbars.successSnackBar(
+          context,
+          title: "Sign Out Successful",
+          message: "You have been signed out.",
+        );
+      }
+      emit(SignOutSuccess());
+    } catch (e) {
+      debugPrint("Sign Out Error: $e");
+      if (context.mounted) {
+        CustomSnakbars.errorSnackBar(
+          context,
+          title: "Sign Out Failed",
+          message: e.toString(),
+        );
+      }
+      emit(SignOutFailed(e.toString()));
     }
   }
 }

@@ -34,13 +34,14 @@ class LoginScreen extends StatelessWidget {
                   CustomSnakbars.successSnackBar(
                     context,
                     title: "Login Successful",
-                    message: "Welcome back!",
+                    message: "Welcome back! ",
                   );
-                   String nextRoute = await checkIfLoggedInAndVerfiedUser();
-                   if(context.mounted){
-                    context.pushReplacementNamed(nextRoute);
-                   }
-                   
+                  String nextRoute = await checkIfLoggedInAndVerfiedUser();
+                  if (context.mounted) {
+                    context.pushReplacementNamed(
+                      nextRoute,
+                    );
+                  }
                 }
               },
               child: Column(

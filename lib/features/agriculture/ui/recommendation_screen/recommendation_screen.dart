@@ -1,6 +1,7 @@
 import 'package:final_project/core/helper/extensions.dart';
 import 'package:final_project/core/themes/colors.dart';
 import 'package:final_project/core/widgets/popups/snakbars.dart';
+import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
 import 'package:final_project/features/agriculture/logic/recommendation_cubit/recommendations_cubit.dart';
 import 'package:final_project/features/agriculture/ui/recommendation_screen/field_input_section.dart';
 import 'package:flutter/material.dart';
@@ -8,11 +9,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/router/router.dart';
 import '../../../../core/themes/styles.dart';
 import 'crop_selected_field.dart';
-import 'rainfall_yes_or_no.dart';
 
 class RecommendationScreen extends StatelessWidget {
-  const RecommendationScreen({super.key});
-
+  const RecommendationScreen({super.key, required this.weatherModel});
+  final WeatherModel weatherModel;
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<RecommendationsCubit>();
@@ -85,19 +85,12 @@ class RecommendationScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             CropSelectedField(cubit: cubit),
-                            RainfallYesNo(cubit: cubit),
+
                             FieldInputSection(
                               label: "PH",
                               controller: cubit.phController,
                             ),
-                            FieldInputSection(
-                              label: "Humidity",
-                              controller: cubit.humidityController,
-                            ),
-                            FieldInputSection(
-                              label: "Temp",
-                              controller: cubit.tempController,
-                            ),
+
                             FieldInputSection(
                               label: "Naitrogen",
                               controller: cubit.nController,
@@ -127,7 +120,9 @@ class RecommendationScreen extends StatelessWidget {
                             ),
                           ),
                           onPressed: () async {
-                            await cubit.calculateRecommendation();
+                            await cubit.calculateRecommendation(
+                              weatherModel
+                            );
                           },
                           child:
                               cubit.isLoading

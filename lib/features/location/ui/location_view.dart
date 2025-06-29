@@ -46,7 +46,6 @@ class LocationView extends StatelessWidget {
                   _buildLocationInfo(state),
                   SizedBox(height: 30),
                   _buildActionButtons(context, state),
-                  SizedBox(height: 20),
                 ],
               ),
             ),
@@ -262,7 +261,6 @@ class LocationView extends StatelessWidget {
 
   Widget _buildActionButtons(BuildContext context, LocationState state) {
     bool isLoading = state is LocationLoading;
-    bool isTracking = state is LocationLoaded && state.isTracking;
 
     return Column(
       children: [
@@ -296,31 +294,7 @@ class LocationView extends StatelessWidget {
           ],
         ),
         SizedBox(height: 12),
-        SizedBox(
-          width: double.infinity,
-          child: ElevatedButton.icon(
-            onPressed:
-                isLoading
-                    ? null
-                    : () {
-                      if (isTracking) {
-                        context.read<LocationCubit>().stopLocationTracking();
-                      } else {
-                        context.read<LocationCubit>().startLocationTracking();
-                      }
-                    },
-            icon: Icon(isTracking ? Icons.stop : Icons.track_changes),
-            label: Text(
-              isTracking ? 'Stop Live Tracking' : 'Start Live Tracking',
-            ),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: isTracking ? Colors.red : null,
-              foregroundColor: isTracking ? Colors.white : null,
-            ),
-          ),
-        ),
-        SizedBox(height: 12),
-        _buildStartButton(context, state as LocationLoaded),
+        if (state is LocationLoaded) _buildStartButton(context, state),
       ],
     );
   }

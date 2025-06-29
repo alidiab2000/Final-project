@@ -1,6 +1,5 @@
 import 'package:final_project/features/agriculture/ui/schedule/widgets/schedule_table.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/themes/colors.dart';
 
 class ScheduleView extends StatelessWidget {
@@ -16,9 +15,11 @@ class ScheduleView extends StatelessWidget {
         backgroundColor:
             ColorsManager.maingreen, // You can change the color as neededط
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [ScheduleTable()],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [ScheduleTable()],
+        ),
       ),
     );
   }

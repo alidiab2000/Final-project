@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/router/app_router.dart';
 
-
 class EmaarElArd extends StatelessWidget {
   const EmaarElArd({super.key, required this.appRouter});
   final AppRouter appRouter;
@@ -19,6 +18,7 @@ class EmaarElArd extends StatelessWidget {
           primaryColor: ColorsManager.maingreen,
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(
+            centerTitle: true,
             backgroundColor: ColorsManager.maingreen,
             elevation: 0,
             titleTextStyle: TextStyle(

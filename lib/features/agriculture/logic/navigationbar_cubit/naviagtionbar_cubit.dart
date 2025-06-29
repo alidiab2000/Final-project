@@ -1,18 +1,69 @@
-import 'package:bloc/bloc.dart';
+import 'package:final_project/core/di/service_locater.dart';
+import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
+import 'package:final_project/features/agriculture/logic/recommendation_cubit/recommendations_cubit.dart';
 import 'package:final_project/features/agriculture/ui/crops/crops_screen.dart';
 import 'package:final_project/features/agriculture/ui/home/home_view.dart';
 import 'package:final_project/features/agriculture/ui/profile_view/profile_screen.dart';
 import 'package:final_project/features/agriculture/ui/schedule/schedule_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:final_project/features/auth/data/model/user_model.dart';
+import 'package:final_project/features/auth/data/repo/user_repo.dart';
+import 'package:final_project/features/agriculture/logic/weather_cubit/weather_cubit.dart';
 
 class NaviagtionbarCubit extends Cubit<int> {
-  NaviagtionbarCubit() : super(0);
-  final List<Widget> destinations = [
-    HomeView(),
+  NaviagtionbarCubit() : super(0) {
+    weatherCubit = getIt<WeatherCubit>();
+  }
+
+  UserModel? user;
+  WeatherModel? weather;
+  late WeatherCubit weatherCubit;
+
+  Future<void> loadUserData() async {
+    user = await UserRepository().fetchUserDetails();
+
+    // Load weather data
+    await refreshWeatherData();
+
+    emit(state); // Re-emit current state to trigger UI update
+  }
+
+  // Method to refresh weather data
+  Future<void> refreshWeatherData() async {
+    try {
+      weather = await weatherCubit.getWeather();
+      emit(state); // Re-emit current state to trigger UI update
+    } catch (e) {
+      // Handle weather loading error if needed
+      debugPrint('Weather loading error: $e');
+    }
+  }
+
+  // Getter to access weather data
+  WeatherModel? get weatherData => weather;
+
+  // Getter to access weather cubit for listening to weather state changes
+  WeatherCubit get weatherCubitInstance => weatherCubit;
+
+  // Method to get current weather state
+  WeatherState get weatherState => weatherCubit.state;
+
+  // Method to check if weather data is available
+  bool get hasWeatherData => weather != null;
+
+  List<Widget> get destinations => [
+    HomeView(userName: user?.userName ?? "User", weatherData: weather),
     CropsScreen(),
-    ScheduleView(),
-    ProfileView(userName: "Ali Diab", userEmail: "a@b.com"),
+    BlocProvider(
+      create: (context) => getIt<RecommendationsCubit>(),
+      child: ScheduleView(),
+    ),
+    ProfileView(
+      userName: user?.userName ?? "User",
+      userEmail: user?.email ?? "",
+    ),
   ];
   final items = [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),

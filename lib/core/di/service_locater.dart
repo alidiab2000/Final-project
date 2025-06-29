@@ -25,8 +25,8 @@ void initGetIt() {
 
   // Weather
   getIt.registerFactory<WeatherCubit>(() => WeatherCubit(getIt()));
-  getIt.registerLazySingleton<WeatherService>(() => WeatherService(getIt()));
-  getIt.registerLazySingleton<Dio>(() => createAndSetupDio());
+  getIt.registerFactory<WeatherService>(() => WeatherService(getIt()));
+  getIt.registerFactory<Dio>(() => createAndSetupDio());
 }
 
 Dio createAndSetupDio() {

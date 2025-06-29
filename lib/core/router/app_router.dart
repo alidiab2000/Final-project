@@ -12,6 +12,7 @@ import 'package:final_project/features/auth/ui/verify/verify_view.dart';
 import 'package:final_project/features/agriculture/ui/navigationbar/navigationbar_menu_view.dart';
 import 'package:final_project/features/auth/ui/onboarding/ui/onboarding_view.dart';
 import '../../features/agriculture/data/models/crops_recommendations_response/crops_recommendations_response.dart';
+import '../../features/agriculture/data/models/weather_api_model.dart';
 import '../../features/agriculture/logic/navigationbar_cubit/naviagtionbar_cubit.dart';
 import '../../features/agriculture/ui/weather/weather_view.dart';
 import '../../features/auth/ui/forget_password/forget_pass_view.dart';
@@ -66,9 +67,11 @@ class AppRouter {
       case Routes.navigationBarMenu:
         return MaterialPageRoute(
           builder:
-              (_) => BlocProvider(
-                create: (context) => NaviagtionbarCubit(),
-
+              (_) => MultiBlocProvider(
+                providers: [
+                  BlocProvider(create: (context) => NaviagtionbarCubit()),
+                  BlocProvider(create: (context) => getIt<WeatherCubit>()),
+                ],
                 child: NavigationBarMenuView(),
               ),
         );
@@ -80,11 +83,7 @@ class AppRouter {
 
       case Routes.weatherView:
         return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create: (context) => getIt<WeatherCubit>(),
-                child: WeatherView(),
-              ),
+          builder: (_) => WeatherView(weatherData: args as WeatherModel?),
         );
 
       case Routes.location:
@@ -100,13 +99,18 @@ class AppRouter {
           builder:
               (_) => BlocProvider(
                 create: (context) => getIt<RecommendationsCubit>(),
-                child: RecommendationScreen(),
+                child: RecommendationScreen(weatherModel: args as WeatherModel),
               ),
         );
       case Routes.resultView:
         return MaterialPageRoute(
           builder:
-              (_) => ResueltView(result: args as CropsRecommendationsResponse),
+              (_) => BlocProvider(
+                create: (context) => getIt<RecommendationsCubit>(),
+                child: ResueltView(
+                  result: args as CropsRecommendationsResponse,
+                ),
+              ),
         );
       default:
         return MaterialPageRoute(

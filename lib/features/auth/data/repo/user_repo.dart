@@ -12,7 +12,7 @@ import '../model/user_model.dart';
 
 class UserRepository {
   // Database
-  
+
   final _db = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
   // Function To Add User Data
@@ -48,9 +48,10 @@ class UserRepository {
       throw PlatformException(e.code).message;
     } catch (e) {
       debugPrint(e.toString());
-      throw "Something went wrong, please try again later";
+      throw e.toString();
     }
   }
+
 
   Future<void> updateUserDetails({required UserModel updateUser}) async {
     try {
