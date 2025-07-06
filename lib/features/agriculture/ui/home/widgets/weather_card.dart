@@ -37,9 +37,9 @@ class WeatherCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 30.sp, color: ColorsManager.maingreen),
-          const SizedBox(height: 5),
           Text(title, style: TextStyles.font12BlackBold),
+          const SizedBox(height: 5),
+          Icon(icon, size: 30.sp, color: Colors.yellow),
           const SizedBox(height: 5),
           Text(details, style: TextStyles.font14GrayRegular),
         ],
