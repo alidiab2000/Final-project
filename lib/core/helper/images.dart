@@ -40,4 +40,6 @@ class ImagesPath {
   static const String cottonVector = 'assets/images/cotton_vector.png';
   static const String comingSoon = 'assets/images/coming_soon.png';
   static const String navBarIcon = 'assets/images/nav_bar_icon.png';
+  static const String homeBackgroud = 'assets/images/background.png';
+  static const String waterNedds = 'assets/images/waterneeds.png';
 }

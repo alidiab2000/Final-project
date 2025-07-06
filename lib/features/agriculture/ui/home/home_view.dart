@@ -16,17 +16,17 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            TitleContainer(userName: userName),
-            divider(),
-            WeatherDetails(weatherData: weatherData),
-            divider(),
-            WaterNeedsCategory(
-              weatherModel: weatherData!,
-            ),
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              TitleContainer(userName: userName),
+              divider(),
+              WeatherDetails(weatherData: weatherData),
+              divider(),
+              WaterNeedsCategory(weatherModel: weatherData!),
+            ],
+          ),
         ),
       ),
     );

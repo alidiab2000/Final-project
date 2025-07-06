@@ -1,3 +1,4 @@
+import 'package:final_project/core/helper/images.dart';
 import 'package:final_project/core/themes/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,21 +9,33 @@ class TitleContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      width: double.infinity,
+      height: MediaQuery.of(context).size.height * .4,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(ImagesPath.homeBackgroud),
+          fit: BoxFit.cover, // تغطية كاملة للصورة
+        ),
+      ),
+      child: Stack(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Good Morning $userName", style: TextStyles.font20BlackBold),
-              Text("Welcome back ", style: TextStyles.font14GrayRegular),
-            ],
+          Positioned(
+            top: 75.h,
+
+            left: 15.w,
+            child: Text(
+              "Good Morning",
+              style: TextStyles.font20WhiteBold.copyWith(color: Colors.black),
+            ),
           ),
-          IconButton(
-            onPressed: () {},
-            iconSize: 30.h,
-            icon: const Icon(Icons.notifications_outlined),
+          Positioned(
+            bottom: 150.h,
+
+            left: 15.w,
+            child: Text(
+              "Hi, Marwa",
+              style: TextStyles.font20WhiteBold.copyWith(color: Colors.green),
+            ),
           ),
         ],
       ),

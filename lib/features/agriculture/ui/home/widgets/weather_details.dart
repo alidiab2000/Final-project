@@ -24,11 +24,10 @@ class WeatherDetails extends StatelessWidget {
             children: [
               CategoryTitle(
                 title: "Weather",
-                onTap:
-                    () => context.pushNamed(
-                      Routes.weatherView,
-                      arguments: weatherData,
-                    ),
+                onTap: () => context.pushNamed(
+                  Routes.weatherView,
+                  arguments: weatherData,
+                ),
               ),
               // Refresh button
               IconButton(
@@ -54,29 +53,20 @@ class WeatherDetails extends StatelessWidget {
                 children: [
                   WeatherCard(
                     icon: Icons.wb_sunny,
-                    title: "Temperature",
-                    details:
-                        weatherData?.currentTemp?.toString() != null
-                            ? "${weatherData!.currentTemp}°C"
-                            : "N/A",
+                    title: "Monday",
+                    details: "27  °C",
                   ),
                   SizedBox(width: 10.w),
                   WeatherCard(
-                    icon: Icons.water_drop,
-                    title: "Humidity",
-                    details:
-                        weatherData?.humidity?.toString() != null
-                            ? "${weatherData!.humidity}%"
-                            : "N/A",
+                    icon: Icons.cloud_circle,
+                    title: "Tuesday",
+                    details: "12  °C",
                   ),
                   SizedBox(width: 10.w),
                   WeatherCard(
-                    icon: Icons.air,
-                    title: "Wind Speed",
-                    details:
-                        weatherData?.windSpeed?.toString() != null
-                            ? "${weatherData!.windSpeed!.round()} km/h"
-                            : "N/A",
+                    icon: Icons.sunny_snowing,
+                    title: "Wednesday",
+                    details: "15  °C",
                   ),
                 ],
               ),

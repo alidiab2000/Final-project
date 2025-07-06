@@ -1,4 +1,5 @@
 import 'package:final_project/core/helper/extensions.dart';
+import 'package:final_project/core/helper/images.dart';
 import 'package:final_project/core/router/router.dart';
 import 'package:final_project/core/themes/styles.dart';
 import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
@@ -40,6 +41,7 @@ class WaterNeedsCategory extends StatelessWidget {
             );
           },
           child: Container(
+            height: MediaQuery.of(context).size.height * 0.2,
             margin: const EdgeInsets.symmetric(horizontal: 16),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -74,6 +76,8 @@ class WaterNeedsCategory extends StatelessWidget {
                     ),
                   ],
                 ),
+                Spacer(),
+                Image.asset(ImagesPath.waterNedds, width: 100.w),
               ],
             ),
           ),
