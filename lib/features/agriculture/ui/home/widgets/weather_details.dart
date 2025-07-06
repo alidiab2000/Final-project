@@ -24,10 +24,11 @@ class WeatherDetails extends StatelessWidget {
             children: [
               CategoryTitle(
                 title: "Weather",
-                onTap: () => context.pushNamed(
-                  Routes.weatherView,
-                  arguments: weatherData,
-                ),
+                onTap:
+                    () => context.pushNamed(
+                      Routes.weatherView,
+                      arguments: weatherData,
+                    ),
               ),
               // Refresh button
               IconButton(
@@ -53,20 +54,26 @@ class WeatherDetails extends StatelessWidget {
                 children: [
                   WeatherCard(
                     icon: Icons.wb_sunny,
-                    title: "Monday",
-                    details: "27  °C",
+                    title: DateTime.now().toString().substring(0, 10),
+                    details: "${weatherData?.avgTempcomingday1 ?? 30}  °C",
                   ),
                   SizedBox(width: 10.w),
                   WeatherCard(
                     icon: Icons.cloud_circle,
-                    title: "Tuesday",
-                    details: "12  °C",
+                    title: DateTime.now()
+                        .add(const Duration(days: 1))
+                        .toString()
+                        .substring(0, 10),
+                    details: "${weatherData?.avgTempcomingday2 ?? 30}  °C",
                   ),
                   SizedBox(width: 10.w),
                   WeatherCard(
                     icon: Icons.sunny_snowing,
-                    title: "Wednesday",
-                    details: "15  °C",
+                    title: DateTime.now()
+                        .add(const Duration(days: 2))
+                        .toString()
+                        .substring(0, 10),
+                    details: "${weatherData?.avgTempcomingday3 ?? 30}  °C",
                   ),
                 ],
               ),

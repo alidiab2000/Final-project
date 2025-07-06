@@ -41,7 +41,7 @@ class WaterNeedsCategory extends StatelessWidget {
             );
           },
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.2,
+            //height: MediaQuery.of(context).size.height * 0.2,
             margin: const EdgeInsets.symmetric(horizontal: 16),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -56,28 +56,34 @@ class WaterNeedsCategory extends StatelessWidget {
               ],
             ),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Icon(Icons.water_drop, color: Colors.blue, size: 35),
-                const SizedBox(width: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Calculate Water Usage',
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
+                Icon(Icons.water_drop, color: Colors.blue, size: 20),
+
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Calculate Water Usage',
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      'Tap to enter crop & soil data',
-                      style: TextStyles.font14GrayRegular,
-                    ),
-                  ],
+                      SizedBox(height: 4),
+                      Text(
+                        'Tap to enter crop & soil data',
+                        style: TextStyles.font14GrayRegular,
+                      ),
+                    ],
+                  ),
                 ),
-                Spacer(),
-                Image.asset(ImagesPath.waterNedds, width: 100.w),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(ImagesPath.waterNedds, width: 60.w),
+                ),
               ],
             ),
           ),

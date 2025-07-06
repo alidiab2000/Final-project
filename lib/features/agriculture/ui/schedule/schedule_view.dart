@@ -15,11 +15,9 @@ class ScheduleView extends StatelessWidget {
         backgroundColor:
             ColorsManager.maingreen, // You can change the color as neededط
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [ScheduleTable()],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [ScheduleTable()],
       ),
     );
   }

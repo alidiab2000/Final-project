@@ -20,8 +20,7 @@ class TitleContainer extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: 75.h,
-
+            top: 50.h,
             left: 15.w,
             child: Text(
               "Good Morning",
@@ -29,11 +28,10 @@ class TitleContainer extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 150.h,
-
+            top: 80.h,
             left: 15.w,
             child: Text(
-              "Hi, Marwa",
+              "Hi, $userName",
               style: TextStyles.font20WhiteBold.copyWith(color: Colors.green),
             ),
           ),

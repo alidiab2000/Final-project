@@ -224,7 +224,11 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 ),
               ],
             ),
-          if (_selectedDates.isEmpty) const EmptyDateState(),
+          if (_selectedDates.isEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              child: const EmptyDateState(),
+            ),
         ],
       ),
     );
