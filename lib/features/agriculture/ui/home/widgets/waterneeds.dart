@@ -1,9 +1,9 @@
-import 'package:final_project/core/helper/extensions.dart';
-import 'package:final_project/core/helper/images.dart';
-import 'package:final_project/core/router/router.dart';
-import 'package:final_project/core/themes/styles.dart';
-import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
-import 'package:final_project/features/agriculture/ui/home/widgets/category_title.dart';
+import '../../../../../core/helper/extensions.dart';
+import '../../../../../core/helper/images.dart';
+import '../../../../../core/router/router.dart';
+import '../../../../../core/themes/styles.dart';
+import '../../../data/models/weather_api_model.dart';
+import 'category_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

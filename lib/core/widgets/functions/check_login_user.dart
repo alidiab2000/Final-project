@@ -1,4 +1,4 @@
-import 'package:final_project/core/router/router.dart';
+import '../../router/router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -32,7 +32,7 @@ Future<String> checkIfLoggedInAndVerfiedUser() async {
   final isFirstTime = prefs.getBool(isFirstTimeKey) ?? true;
 
   if (isFirstTime) {
-    await prefs.setBool(isFirstTimeKey, false);
+    
     return Routes.onboarding;
   }
 

@@ -1,8 +1,8 @@
-import 'package:final_project/core/helper/extensions.dart';
-import 'package:final_project/core/widgets/popups/snakbars.dart';
-import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
-import 'package:final_project/features/auth/ui/forget_password/widgets/title_and_text.dart';
-import 'package:final_project/features/auth/ui/login/widgets/social_mediasection.dart';
+import '../../../../core/helper/extensions.dart';
+import '../../../../core/widgets/popups/snakbars.dart';
+import '../../logic/cubit/authcubit.dart';
+import '../forget_password/widgets/title_and_text.dart';
+import '../login/widgets/social_mediasection.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,16 +1,16 @@
-import 'package:final_project/core/di/service_locater.dart';
-import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
-import 'package:final_project/features/agriculture/logic/recommendation_cubit/recommendations_cubit.dart';
-import 'package:final_project/features/agriculture/ui/crops/crops_screen.dart';
-import 'package:final_project/features/agriculture/ui/home/home_view.dart';
-import 'package:final_project/features/agriculture/ui/profile_view/profile_screen.dart';
-import 'package:final_project/features/agriculture/ui/schedule/schedule_view.dart';
+import '../../../../core/di/service_locater.dart';
+import '../../data/models/weather_api_model.dart';
+import '../recommendation_cubit/recommendations_cubit.dart';
+import '../../ui/crops/crops_screen.dart';
+import '../../ui/home/home_view.dart';
+import '../../ui/profile_view/profile_screen.dart';
+import '../../ui/schedule/schedule_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:final_project/features/auth/data/model/user_model.dart';
-import 'package:final_project/features/auth/data/repo/user_repo.dart';
-import 'package:final_project/features/agriculture/logic/weather_cubit/weather_cubit.dart';
+import '../../../auth/data/model/user_model.dart';
+import '../../../auth/data/repo/user_repo.dart';
+import '../weather_cubit/weather_cubit.dart';
 
 class NaviagtionbarCubit extends Cubit<int> {
   NaviagtionbarCubit() : super(0) {

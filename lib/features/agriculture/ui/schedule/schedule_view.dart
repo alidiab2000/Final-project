@@ -1,4 +1,4 @@
-import 'package:final_project/features/agriculture/ui/schedule/widgets/schedule_table.dart';
+import 'widgets/schedule_table.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/themes/colors.dart';
 

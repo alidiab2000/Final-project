@@ -1,4 +1,6 @@
-import 'package:final_project/core/themes/colors.dart';
+import 'package:final_project/core/router/router.dart';
+
+import 'core/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/router/app_router.dart';
@@ -28,7 +30,7 @@ class EmaarElArd extends StatelessWidget {
             ),
           ),
         ),
-        initialRoute: appRouter.initialRoute,
+        initialRoute: Routes.onboarding, //appRouter.initialRoute,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );

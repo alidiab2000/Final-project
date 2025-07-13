@@ -20,7 +20,7 @@ class ImagesPath {
   static const String loaderAnimated =
       "assets/animations/loader-animation.json";
   static const String onboardingAnimated =
-      'assets/images/onboardingAnimated.json';
+      'assets/animations/onboardingAnimated.json';
   static const String riceImage = "assets/images/rice.jpeg";
   static const String wheatImage = "assets/images/wheatimage.jpg";
   static const String cropsImage = "assets/images/crops.jpg";

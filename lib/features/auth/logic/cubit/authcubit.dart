@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:final_project/core/widgets/popups/snakbars.dart';
-import 'package:final_project/core/widgets/screens/loading_screen.dart';
-import 'package:final_project/features/auth/data/model/user_model.dart';
-import 'package:final_project/features/auth/data/repo/auth_repo.dart';
-import 'package:final_project/features/auth/data/repo/user_repo.dart';
+import '../../../../core/widgets/popups/snakbars.dart';
+import '../../../../core/widgets/screens/loading_screen.dart';
+import '../../data/model/user_model.dart';
+import '../../data/repo/auth_repo.dart';
+import '../../data/repo/user_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 part 'auth_state.dart';

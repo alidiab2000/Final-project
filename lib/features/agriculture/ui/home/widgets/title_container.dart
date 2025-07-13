@@ -1,5 +1,5 @@
-import 'package:final_project/core/helper/images.dart';
-import 'package:final_project/core/themes/styles.dart';
+import '../../../../../core/helper/images.dart';
+import '../../../../../core/themes/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,4 +1,4 @@
-import 'package:final_project/core/themes/colors.dart';
+import '../../themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

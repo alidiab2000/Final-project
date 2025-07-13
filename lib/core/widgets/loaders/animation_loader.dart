@@ -1,5 +1,5 @@
-import 'package:final_project/core/helper/images.dart';
-import 'package:final_project/core/themes/colors.dart';
+import '../../helper/images.dart';
+import '../../themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';

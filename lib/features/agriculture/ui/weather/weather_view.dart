@@ -1,7 +1,7 @@
-import 'package:final_project/core/themes/colors.dart';
-import 'package:final_project/core/themes/styles.dart';
-import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
-import 'package:final_project/features/agriculture/ui/weather/widgets/details_weather_grid_view.dart';
+import '../../../../core/themes/colors.dart';
+import '../../../../core/themes/styles.dart';
+import '../../data/models/weather_api_model.dart';
+import 'widgets/details_weather_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/coming_weather.dart';

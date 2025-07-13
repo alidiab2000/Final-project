@@ -1,4 +1,4 @@
-import 'package:final_project/core/helper/extensions.dart';
+import '../../helper/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

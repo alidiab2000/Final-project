@@ -1,9 +1,9 @@
-import 'package:final_project/core/helper/extensions.dart';
-import 'package:final_project/core/themes/colors.dart';
-import 'package:final_project/core/widgets/popups/snakbars.dart';
-import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
-import 'package:final_project/features/agriculture/logic/recommendation_cubit/recommendations_cubit.dart';
-import 'package:final_project/features/agriculture/ui/recommendation_screen/field_input_section.dart';
+import '../../../../core/helper/extensions.dart';
+import '../../../../core/themes/colors.dart';
+import '../../../../core/widgets/popups/snakbars.dart';
+import '../../data/models/weather_api_model.dart';
+import '../../logic/recommendation_cubit/recommendations_cubit.dart';
+import 'field_input_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/router/router.dart';
@@ -85,22 +85,30 @@ class RecommendationScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             CropSelectedField(cubit: cubit),
-
+                            FieldInputSection(
+                              label: "Area of land",
+                              hint: "Sqr M",
+                              controller: cubit.areaController,
+                            ),
                             FieldInputSection(
                               label: "PH",
+
                               controller: cubit.phController,
                             ),
 
                             FieldInputSection(
                               label: "Naitrogen",
+                              check: true,
                               controller: cubit.nController,
                             ),
                             FieldInputSection(
                               label: "Phosphorus",
+                              check: true,
                               controller: cubit.pController,
                             ),
                             FieldInputSection(
                               label: "Potassium",
+                              check: true,
                               controller: cubit.kController,
                             ),
                           ],
@@ -120,9 +128,7 @@ class RecommendationScreen extends StatelessWidget {
                             ),
                           ),
                           onPressed: () async {
-                            await cubit.calculateRecommendation(
-                              weatherModel
-                            );
+                            await cubit.calculateRecommendation(weatherModel);
                           },
                           child:
                               cubit.isLoading

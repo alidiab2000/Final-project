@@ -1,10 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/material.dart';
-
 import 'package:final_project/core/themes/colors.dart';
+import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
 import 'package:final_project/features/agriculture/ui/home/widgets/title_container.dart';
 import 'package:final_project/features/agriculture/ui/home/widgets/waterneeds.dart';
-import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
+import 'package:flutter/material.dart';
 
 import 'widgets/weather_details.dart';
 

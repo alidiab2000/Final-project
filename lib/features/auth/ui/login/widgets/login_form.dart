@@ -1,7 +1,7 @@
-import 'package:final_project/core/helper/app_regex.dart';
-import 'package:final_project/core/helper/extensions.dart';
-import 'package:final_project/core/router/router.dart';
-import 'package:final_project/core/themes/styles.dart';
+import '../../../../../core/helper/app_regex.dart';
+import '../../../../../core/helper/extensions.dart';
+import '../../../../../core/router/router.dart';
+import '../../../../../core/themes/styles.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,12 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
-import 'package:final_project/features/agriculture/data/models/crops_recommendations_response/crops_recommendations_response.dart';
-import 'package:final_project/features/agriculture/data/models/crops_recommendations_response/recommendation.dart';
-import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
+import '../../data/models/crops_recommendations_response/crops_recommendations_response.dart';
+import '../../data/models/crops_recommendations_response/recommendation.dart';
+import '../../data/models/weather_api_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
-import 'package:final_project/features/agriculture/data/services/recommendation_services.dart';
+import '../../data/services/recommendation_services.dart';
 import '../../data/models/crops_recommendations_request/crops_recommendations_request.dart';
 import '../../data/models/crops_recommendations_request/weekly_weather_datum.dart';
 part 'recommendations_state.dart';
@@ -18,6 +17,7 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
   final TextEditingController nController = TextEditingController();
   final TextEditingController pController = TextEditingController();
   final TextEditingController kController = TextEditingController();
+  final TextEditingController areaController = TextEditingController();
   final RecommendationServices recommendationServices;
   final formKey = GlobalKey<FormState>();
   String? selectedCrop;
@@ -31,7 +31,7 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
         CropsRecommendationsResponse recommendations =
             await recommendationServices.getRecommendations(
               request: CropsRecommendationsRequest(
-                area: 1000,
+                area: int.parse(areaController.text),
                 crop: selectedCrop ?? "Rice",
                 weeklyWeatherData: [
                   WeeklyWeatherDatum(
@@ -86,23 +86,13 @@ class RecommendationsCubit extends Cubit<RecommendationsState> {
         List currentRecommendations = data?['recommendations'] ?? [];
         // 3. ضيف الـ Map الجديد
         currentRecommendations.add(rec.toJson());
-
+        debugPrint("CurrenrRec : $currentRecommendations");
         // 2. Convert rec to map
         Map<String, dynamic> newRec = rec.toJson();
 
-        // 3. Check if it's already added
-        bool alreadyExists = currentRecommendations.any((element) {
-          return MapEquality().equals(
-            Map<String, dynamic>.from(element),
-            newRec,
-          );
-        });
-
         // 4. If not, add it
-        if (!alreadyExists) {
-          currentRecommendations.add(newRec);
-          await docRef.update({'recommendations': currentRecommendations});
-        }
+        currentRecommendations.add(newRec);
+        await docRef.update({'recommendations': currentRecommendations});
       }
 
       emit(RecommendationsSaved());

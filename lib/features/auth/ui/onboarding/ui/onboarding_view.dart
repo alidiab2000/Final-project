@@ -1,7 +1,9 @@
-import 'package:final_project/core/helper/extensions.dart';
-import 'package:final_project/core/helper/images.dart';
-import 'package:final_project/core/router/router.dart';
-import 'package:final_project/core/themes/styles.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../../../core/helper/extensions.dart';
+import '../../../../../core/helper/images.dart';
+import '../../../../../core/router/router.dart';
+import '../../../../../core/themes/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
@@ -31,8 +33,14 @@ class OnboardingView extends StatelessWidget {
                 SizedBox(height: 50.h),
                 CustomButton(
                   buttonText: "Get Started",
-                  onPressed: () {
-                    context.pushReplacementNamed(Routes.login);
+                  onPressed: () async {
+                    SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                    const String isFirstTimeKey = "isFirstTime";
+                    await prefs.setBool(isFirstTimeKey, false);
+                    if (context.mounted) {
+                      context.pushReplacementNamed(Routes.login);
+                    }
                   },
                 ),
               ],

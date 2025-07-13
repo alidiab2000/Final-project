@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:final_project/core/errors/firebase_auth_exceptions.dart';
-import 'package:final_project/core/errors/platform_exceptions.dart';
+import '../../../../core/errors/firebase_auth_exceptions.dart';
+import '../../../../core/errors/platform_exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';

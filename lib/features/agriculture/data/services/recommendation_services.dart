@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:final_project/features/agriculture/data/models/crops_recommendations_request/crops_recommendations_request.dart';
-import 'package:final_project/features/agriculture/data/models/crops_recommendations_response/crops_recommendations_response.dart';
+import '../models/crops_recommendations_request/crops_recommendations_request.dart';
+import '../models/crops_recommendations_response/crops_recommendations_response.dart';
 import 'package:flutter/material.dart';
 
 class RecommendationServices {
@@ -13,7 +13,7 @@ class RecommendationServices {
     try {
       debugPrint('Sending request: ${request.toJson()}');
       final response = await dio.post(
-        'http://192.168.1.5:8000/api/recommendation',
+        'http://192.168.81.62:8000/api/recommendation',
         data: request.toJson(),
       );
 

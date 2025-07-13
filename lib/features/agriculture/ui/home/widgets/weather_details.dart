@@ -1,5 +1,5 @@
-import 'package:final_project/core/helper/extensions.dart';
-import 'package:final_project/features/agriculture/ui/home/widgets/weather_card.dart';
+import '../../../../../core/helper/extensions.dart';
+import 'weather_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

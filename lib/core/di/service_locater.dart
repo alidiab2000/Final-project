@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:final_project/features/agriculture/data/services/recommendation_services.dart';
-import 'package:final_project/features/agriculture/data/services/weather_services.dart';
-import 'package:final_project/features/agriculture/logic/weather_cubit/weather_cubit.dart';
-import 'package:final_project/features/auth/logic/cubit/authcubit.dart';
-import 'package:final_project/features/location/data/location_service.dart';
-import 'package:final_project/features/location/logic/location_cubit.dart';
+import '../../features/agriculture/data/services/recommendation_services.dart';
+import '../../features/agriculture/data/services/weather_services.dart';
+import '../../features/agriculture/logic/weather_cubit/weather_cubit.dart';
+import '../../features/auth/logic/cubit/authcubit.dart';
+import '../../features/location/data/location_service.dart';
+import '../../features/location/logic/location_cubit.dart';
 import 'package:get_it/get_it.dart';
 import '../../features/agriculture/logic/recommendation_cubit/recommendations_cubit.dart';
 

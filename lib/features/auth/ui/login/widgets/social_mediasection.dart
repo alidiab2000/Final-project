@@ -1,6 +1,6 @@
-import 'package:final_project/core/helper/extensions.dart';
-import 'package:final_project/core/helper/images.dart';
-import 'package:final_project/core/router/router.dart';
+import '../../../../../core/helper/extensions.dart';
+import '../../../../../core/helper/images.dart';
+import '../../../../../core/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

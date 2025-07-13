@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:final_project/features/agriculture/data/models/weather_api_model.dart';
+import '../models/weather_api_model.dart';
 
 
 class WeatherService {

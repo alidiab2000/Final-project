@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:final_project/features/agriculture/data/models/crops_recommendations_response/recommendation.dart';
-import 'package:final_project/features/agriculture/logic/recommendation_cubit/recommendations_cubit.dart';
+import '../../../data/models/crops_recommendations_response/recommendation.dart';
+import '../../../logic/recommendation_cubit/recommendations_cubit.dart';
 
 import 'date_cards_list.dart';
 import 'date_selection_buttons.dart';
